@@ -5,8 +5,8 @@ import os
 import re
 
 from bs4 import BeautifulSoup
-from ac_core.constant import _SITE_URL
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface
 
 
 @dataclass
@@ -25,7 +25,7 @@ class SubmissionResult:
   id: str = ''
   url: str = ''
   score: int = 500
-  status: str = Status.INIT
+  status: Status = Status.INIT
   time_cost_ms: int = 0
   mem_cost_kb: int = 0
 
@@ -40,7 +40,7 @@ def parse_result(resp: str) -> SubmissionResult:
   sub_id = list(res.keys())[0]
   soup = BeautifulSoup(res[sub_id]["Html"], "lxml")
   tds = soup.find_all('td')
-  status = tds[0].find('span').attrs.get('title')
+  status = str(tds[0].find('span').attrs.get('title'))
   try:
     score = int(res[sub_id]["Score"])
   except:
@@ -66,13 +66,14 @@ def parse_result(resp: str) -> SubmissionResult:
 def fetch_result_by_url(http_util: HttpUtilInterface, json_url: str) -> SubmissionResult:
   response = http_util.get(url=json_url)
   ret = parse_result(resp=response.text)
-  ret.quick_key = json_url
+  ret.url = json_url
   return ret
 
 
 def _problem_url_to_sub_url(problem_url: str) -> str:
   # problem_url https://atcoder.jp/contests/abc275/tasks/abc275_f
   r = re.match('^(.*)/tasks/(.*)$', problem_url)
+  assert r is not None
   prefix = r.group(1)
   problem_suffix = r.group(2)
   # https://atcoder.jp/contests/abc275/submissions/me?f.Task=abc275_f
@@ -82,10 +83,10 @@ def _problem_url_to_sub_url(problem_url: str) -> str:
 def _parse_json_url(html: str):
   soup = BeautifulSoup(html, 'lxml')
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>
-  r = re.search('<td class="text-center">.*?"/contests/(.*?)/submissions/([0-9]*?)\">Detail</a>',
-                str(soup), re.DOTALL | re.MULTILINE)
-  return os.path.join(_SITE_URL,
-                      f"contests/{r.group(1)}/submissions/me/status/json?sids[]={r.group(2)}")
+  r = re.search('<td class="text-center">.*?"/contests/(.*?)/submissions/([0-9]*?)\">Detail</a>', str(soup),
+                re.DOTALL | re.MULTILINE)
+  assert r is not None
+  return os.path.join(_SITE_URL, f"contests/{r.group(1)}/submissions/me/status/json?sids[]={r.group(2)}")
 
 
 # problem_url https://atcoder.jp/contests/abc275/tasks/abc275_f

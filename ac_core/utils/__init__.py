@@ -32,6 +32,7 @@ def get_direct_children_text(tag: bs4.Tag) -> str:
   text = ''
   for child in tag.children:
     if isinstance(child, bs4.NavigableString):
+      print("check mypy child.string or child.strings")
       text += child.string
     elif isinstance(child, bs4.Tag) and child.name == 'br':
       text += '\n'

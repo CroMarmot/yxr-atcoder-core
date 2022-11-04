@@ -1,12 +1,13 @@
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, cast
 
 from bs4 import BeautifulSoup
-from ac_core.constant import _SITE_URL
+import bs4
 
-from ac_core.interfaces.HttpUtil import HttpUtilInterface, HttpRespInterface
-from ac_core.url import url_2_contest_id
-from ac_core.utils import HTML_PARSER
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface, HttpRespInterface
+from .url import url_2_contest_id
+from .utils import HTML_PARSER
 
 
 @dataclass
@@ -16,7 +17,7 @@ class SubmitResult:
 
 def fetch_fields(html: str) -> Dict[str, str]:
   soup = BeautifulSoup(html, HTML_PARSER)
-  return {'csrf_token': soup.find('input', attrs={'name': 'csrf_token'})['value']}
+  return {'csrf_token': cast(bs4.Tag, soup.find('input', attrs={'name': 'csrf_token'})).attrs['value']}
 
 
 def problem_url_2_submit_url(problem_url: str) -> str:
@@ -24,8 +25,7 @@ def problem_url_2_submit_url(problem_url: str) -> str:
   return _SITE_URL + '/contests/' + contest_id + '/submit'
 
 
-def fetch_submit(http_util: HttpUtilInterface, problem_url: str, lang_id: str,
-                 source_code: str) -> HttpRespInterface:
+def fetch_submit(http_util: HttpUtilInterface, problem_url: str, lang_id: str, source_code: str) -> HttpRespInterface:
   problem_id = problem_url.split('/')[-1]
   submit_url = problem_url_2_submit_url(problem_url)
   html = (http_util.get(submit_url)).text

@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from typing import List
 
-from bs4 import BeautifulSoup
-from ac_core.constant import _SITE_URL
+from bs4 import BeautifulSoup, Tag
 
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface
 
 
 @dataclass
@@ -19,9 +19,9 @@ def fetch_language(http_util: HttpUtilInterface) -> List[LanguageKV]:
   assert resp.status_code == 200
   soup = BeautifulSoup(resp.text, 'lxml')
   result: List[LanguageKV] = []
-  tags = soup.find('div', attrs={'id': 'select-lang-practice_1'}).find('select')
-  if tags:
-    options = tags.find_all('option')
+  tag = soup.find('div', attrs={'id': 'select-lang-practice_1'}).find('select')
+  if isinstance(tag, Tag):
+    options = tag.find_all('option')
     for child in options:
       result.append(LanguageKV(value=child.get('value'), text=child.string))
   return result

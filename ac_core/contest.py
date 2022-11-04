@@ -1,23 +1,19 @@
 import os
 from dataclasses import dataclass
-from typing import List, NamedTuple
+from typing import List, cast
 from bs4 import BeautifulSoup
+import bs4
 
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
-from ac_core.problem import parse_task
-from ac_core.utils import HTML_PARSER, remove_suffix
-from ac_core.constant import _SITE_URL
-from ac_core.utils.html_parse_helper import parse_start_end, parse_url
+from .modal.problem_test_case import ProblemTestCase
+from .interfaces.HttpUtil import HttpUtilInterface
+from .problem import parse_task
+from .utils import HTML_PARSER, remove_suffix
+from .constant import _SITE_URL
+from .utils.html_parse_helper import parse_start_end, parse_url
 
 
 @dataclass
-class TestCase():
-  title: str
-  input: str = ''
-  output: str = ''
-
-
-class ParserProblemResult(NamedTuple):
+class ParserProblemResult():
   id: str
   url: str
   name: str
@@ -25,7 +21,8 @@ class ParserProblemResult(NamedTuple):
   memory_limit_kb: int  # kb
 
 
-class ParserResult(NamedTuple):
+@dataclass
+class ParserResult():
   start_time: int
   end_time: int
   name: str
@@ -41,7 +38,7 @@ class FetchProblemResult:
   score: int
   time_limit_msec: int  # ms
   memory_limit_kb: int  # mb
-  tests: List[TestCase]
+  tests: List[ProblemTestCase]
 
 
 @dataclass
@@ -57,7 +54,7 @@ def parse_tasks(html: str) -> ParserResult:
   soup = BeautifulSoup(html, HTML_PARSER)
   problems: List[ParserProblemResult] = []
 
-  tbody = soup.find('tbody')
+  tbody = cast(bs4.Tag, soup.find('tbody'))
   trs = tbody.find_all('tr')
   for tr in trs:
     tds = tr.find_all('td')
@@ -80,13 +77,14 @@ def parse_tasks(html: str) -> ParserResult:
     if len(tds) == 5:
       assert tds[4].text.strip() in ('', 'Submit', '提出')
 
-    problems.append(ParserProblemResult(
-        id=alphabet,
-        url=url,
-        name=name,
-        memory_limit_kb=memory_limit_kb,
-        time_limit_msec=time_limit_msec,
-    ))
+    problems.append(
+        ParserProblemResult(
+            id=alphabet,
+            url=url,
+            name=name,
+            time_limit_msec=time_limit_msec,
+            memory_limit_kb=memory_limit_kb,
+        ))
   url = parse_url(soup)
   name = soup.find(class_="contest-title").text
   start_time, end_time = parse_start_end(soup)
@@ -125,6 +123,7 @@ def fetch_tasks(http_util: HttpUtilInterface, contest_id: str) -> FetchResult:
         memory_limit_kb=problem_parser_result.memory_limit_kb,
         tests=problem_parser_result.tests,
     )
+
   problems = [fetch_p(url) for url in urls]
 
   return FetchResult(
@@ -137,7 +136,7 @@ def fetch_tasks(http_util: HttpUtilInterface, contest_id: str) -> FetchResult:
 
 
 def fetch_tasks_meta(http_util: HttpUtilInterface, contest_id: str) -> ParserResult:
-  url = os.path.join(_SITE_URL,'contests',contest_id , 'tasks')
+  url = os.path.join(_SITE_URL, 'contests', contest_id, 'tasks')
   resp = http_util.get(url)
   assert resp.status_code == 200
   return parse_tasks(resp.text)

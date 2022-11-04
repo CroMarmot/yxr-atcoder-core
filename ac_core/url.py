@@ -1,7 +1,7 @@
 import re
 
 from urllib.parse import urlparse
-from ac_core.utils import remove_suffix
+from .utils import remove_suffix
 
 
 def url_2_contest_id(url: str) -> str:
@@ -13,7 +13,7 @@ def url_2_contest_id(url: str) -> str:
 
   result = urlparse(url)
   if result.hostname is None:
-    return None
+    return ""
 
   # example: https://kupc2014.contest.atcoder.jp/tasks/kupc2014_d
   if result.scheme in ('', 'http', 'https') and result.hostname.endswith('.contest.atcoder.jp'):
@@ -24,5 +24,4 @@ def url_2_contest_id(url: str) -> str:
     m = re.match(r'/contests/([\w\-_]+)/?.*', result.path)
     if m:
       return m.group(1)
-
-  return None
+  assert False

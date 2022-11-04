@@ -1,9 +1,11 @@
 from logging import getLogger
+from typing import cast
 from bs4 import BeautifulSoup
+import bs4
 
-from ac_core.constant import _SITE_URL
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
-from ac_core.utils import HTML_PARSER
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface
+from .utils import HTML_PARSER
 
 logger = getLogger(__name__)
 
@@ -26,7 +28,7 @@ def fetch_login(http_util: HttpUtilInterface, username: str, password: str) -> b
   try:
     res = http_util.get(_SITE_URL + '/login')
     soup = BeautifulSoup(res.text, HTML_PARSER)
-    csrf_token = soup.find(attrs={'name': 'csrf_token'}).get('value')
+    csrf_token = cast(bs4.Tag, soup.find(attrs={'name': 'csrf_token'})).get('value')
     post_data = {
         'csrf_token': csrf_token,
         'username': username,
@@ -43,5 +45,6 @@ class InvalidSessionError(Exception):
 
   def __init__(self, message: str = DEFAULT_MESSAGE) -> None:
     super().__init__(message)
+
 
 # TODO logout?

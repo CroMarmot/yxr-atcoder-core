@@ -1,15 +1,14 @@
 from dataclasses import dataclass
 from logging import getLogger
 import re
-from typing import Dict, Iterator, List, NamedTuple, Optional, Tuple
+from typing import Dict, Iterator, List, Optional, Tuple, cast
 
 from bs4 import BeautifulSoup
 import bs4
-from ac_core import contest
-from ac_core.constant import _SITE_URL
-
-from ac_core.utils import HTML_PARSER, get_direct_children_text, remove_prefix, remove_suffix
-from ac_core.utils.html_parse_helper import parse_start_end, parse_url
+from .constant import _SITE_URL
+from .modal.problem_test_case import ProblemTestCase
+from .utils import HTML_PARSER, get_direct_children_text, remove_prefix, remove_suffix
+from .utils.html_parse_helper import parse_start_end, parse_url
 
 logger = getLogger(__name__)
 
@@ -21,19 +20,12 @@ class SampleParseError(RuntimeError):
 
 
 @dataclass
-class TestCase():
-  title: str
-  input: str = ''
-  output: str = ''
-
-
-@dataclass
 class ProblemResult():
   id: str
   url: str
   name: str
   score: int
-  tests: List[TestCase]
+  tests: List[ProblemTestCase]
   contest_name: str
   contest_url: str
   contest_start: int
@@ -45,7 +37,8 @@ class ProblemResult():
 def _parse_score(soup: bs4.BeautifulSoup) -> Optional[int]:
   task_statement = soup.find('div', id='task-statement')
   p = task_statement.find('p')  # first
-  if p is not None and p.text.startswith('配点 : '):
+
+  if isinstance(p, bs4.Tag) and p.text.startswith('配点 : '):
     score = remove_suffix(remove_prefix(p.text, '配点 : '), ' 点')
     try:
       return int(score)
@@ -77,7 +70,7 @@ def _find_sample_tags(soup: BeautifulSoup) -> Iterator[Tuple[str, int, str]]:
       return tag
     return None
 
-  for pre in soup.find(id='task-statement').find_all('pre'):
+  for pre in cast(bs4.Tag, soup.find(id='task-statement')).find_all('pre'):
     logger.debug('pre tag: %s', str(pre))
 
     # the standard format: #task-statement h3+pre
@@ -112,15 +105,15 @@ def _find_sample_tags(soup: BeautifulSoup) -> Iterator[Tuple[str, int, str]]:
         continue
 
 
-def _parse_sample_cases(soup: BeautifulSoup) -> List[TestCase]:
+def _parse_sample_cases(soup: BeautifulSoup) -> List[ProblemTestCase]:
   """
     :raises SampleParseError:
   """
-  s_dict: Dict[str, TestCase] = {}
+  s_dict: Dict[str, ProblemTestCase] = {}
 
   for title, inout, content in _find_sample_tags(soup):
     if title not in s_dict:
-      s_dict[title] = TestCase(title=title)
+      s_dict[title] = ProblemTestCase(title=title)
     if inout == 0:
       s_dict[title].input = content.lstrip()
     elif inout == 1:
@@ -128,7 +121,7 @@ def _parse_sample_cases(soup: BeautifulSoup) -> List[TestCase]:
     else:
       assert (False)
 
-  samples: List[TestCase] = []
+  samples: List[ProblemTestCase] = []
   for title, inout, content in _find_sample_tags(soup):
     if inout == 0:
       samples.append(s_dict[title])
@@ -139,6 +132,7 @@ def _parse_sample_cases(soup: BeautifulSoup) -> List[TestCase]:
 def parse_task(html: str) -> ProblemResult:
   soup = BeautifulSoup(html, HTML_PARSER)
   h2 = soup.find('span', class_='h2')
+  assert isinstance(h2, bs4.Tag)
 
   alphabet, _, name = get_direct_children_text(h2).strip().partition(' - ')
 
@@ -168,19 +162,17 @@ def parse_task(html: str) -> ProblemResult:
   else:
     assert False
 
-  tests: List[TestCase] = []
-
   try:
-    tests = _parse_sample_cases(soup)  # type: Optional[List[TestCase]]
+    tests_list = _parse_sample_cases(soup) or []  # type: Optional[List[ProblemTestCase]]
   except SampleParseError as e:
     logger.error(str(e))
-    pass
 
   score = _parse_score(soup)
   url = parse_url(soup)
   contest_info = soup.find(class_="contest-title")
+  assert isinstance(contest_info, bs4.Tag)
   contest_name = contest_info.text
-  contest_url = _SITE_URL + contest_info["href"]
+  contest_url = _SITE_URL + contest_info.attrs["href"]
   start_time, end_time = parse_start_end(soup)
 
   return ProblemResult(
@@ -189,11 +181,10 @@ def parse_task(html: str) -> ProblemResult:
       name=name,
       time_limit_msec=time_limit_msec,
       memory_limit_kb=memory_limit_byte,
-      tests=tests,
+      tests=tests_list,
       score=score,
       contest_name=contest_name,
       contest_url=contest_url,
       contest_start=start_time,
       contest_end=end_time,
   )
-
