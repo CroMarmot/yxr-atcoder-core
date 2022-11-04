@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yxr-atcoder-core"
+description = "Simple Atcoder core api"
+version = "0.0.1"
+authors = [
+  { name="YeXiaoRain", email="yexiaorain@gmail.com" }
+]
+dependencies = [
+  "requests >= 2",
+  "beautifulsoup4 >= 4",
+  "lxml >= 4",
+]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+]
+keywords = ["atcoder", "api", "yxr"]
+license = { file="LICENSE" }
+
+[project.urls]
+"Homepage" = "https://github.com/CroMarmot/yxr-atcoder-core"
+"Bug Tracker" = "https://github.com/CroMarmot/yxr-atcoder-core/issues"
+
+[project.optional-dependencies]
+tests = [
+  'build',
+  'coverage >= 6',
+  'pytest >= 7',
+]
+
+[tool.setuptools.packages.find]
+where = ["."] # default "."
+include = ["ac_core"] # ["*"] by default
+exclude = ["TODO.md", "tests", "docs"] # empty by default
+namespaces = true # true by default
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+  "tests",
+]
+
+[tool.yapf]
+based_on_style = "pep8"
+column_limit = 120
+indent_width = 2
