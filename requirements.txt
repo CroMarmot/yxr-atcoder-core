@@ -7,3 +7,4 @@ coverage==6.2
 pytest==7.1.2
 toml
 yapf==0.32.0
+dataclasses-json

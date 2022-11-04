@@ -51,6 +51,14 @@ def _parse_score(soup: bs4.BeautifulSoup) -> Optional[int]:
 
 # Title in/out content
 def _find_sample_tags(soup: BeautifulSoup) -> Iterator[Tuple[str, int, str]]:
+  # fix dup test case cause of lang-ja and lang-en
+  lang_soup = soup.find('span',class_="lang-en")
+  if lang_soup is None:
+    lang_soup = soup.find('span',class_="lang-ja")
+  if lang_soup is None:
+    lang_soup = soup.find(id='task-statement')
+  assert isinstance(lang_soup, bs4.Tag)
+
   input_strings = ('入力例', 'Sample Input')
   output_strings = ('出力例', 'Sample Output')
   expected_strings = input_strings + output_strings
@@ -70,7 +78,7 @@ def _find_sample_tags(soup: BeautifulSoup) -> Iterator[Tuple[str, int, str]]:
       return tag
     return None
 
-  for pre in cast(bs4.Tag, soup.find(id='task-statement')).find_all('pre'):
+  for pre in lang_soup.find_all('pre'):
     logger.debug('pre tag: %s', str(pre))
 
     # the standard format: #task-statement h3+pre

@@ -64,6 +64,7 @@ def parse_result(resp: str) -> SubmissionResult:
 
 
 def fetch_result_by_url(http_util: HttpUtilInterface, json_url: str) -> SubmissionResult:
+  print(json_url)
   response = http_util.get(url=json_url)
   ret = parse_result(resp=response.text)
   ret.url = json_url
@@ -85,7 +86,7 @@ def _parse_json_url(html: str):
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>
   r = re.search('<td class="text-center">.*?"/contests/(.*?)/submissions/([0-9]*?)\">Detail</a>', str(soup),
                 re.DOTALL | re.MULTILINE)
-  assert r is not None
+  assert r is not None # no submission
   return os.path.join(_SITE_URL, f"contests/{r.group(1)}/submissions/me/status/json?sids[]={r.group(2)}")
 
 
@@ -95,6 +96,7 @@ def fetch_result(http_util: HttpUtilInterface, problem_url: str) -> SubmissionRe
   submission_url = _problem_url_to_sub_url(problem_url)
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>
   # https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077
+  print(submission_url)
   resp = http_util.get(submission_url)
   json_url = _parse_json_url(resp.text)
   return fetch_result_by_url(http_util, json_url)
