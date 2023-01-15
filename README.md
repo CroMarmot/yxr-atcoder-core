@@ -1,6 +1,7 @@
 # YeXiaoRain-Atcoder-Core
 
 [![linting: yapf](https://img.shields.io/badge/linting-yapf-green)](https://github.com/google/yapf)
+[![pages-build-deployment](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment)
 
 ## About
 
@@ -14,8 +15,9 @@ Based on this library, you can easily build command-line programs and intermedia
 pip install yxr-atcoder-core
 ```
 
-
 ## Docs
 
-[Dev](./docs/dev.md)
+[Usage](https://cromarmot.github.io/yxr-atcoder-core/usage/index.html)
+
+[Dev](https://cromarmot.github.io/yxr-atcoder-core/dev/index.html)
 
