@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from logging import getLogger
 import re
-from typing import Dict, Iterator, List, Optional, Tuple, cast
+from typing import Dict, Iterator, List, Optional, Tuple
 
 from bs4 import BeautifulSoup
 import bs4
@@ -52,9 +52,9 @@ def _parse_score(soup: bs4.BeautifulSoup) -> Optional[int]:
 # Title in/out content
 def _find_sample_tags(soup: BeautifulSoup) -> Iterator[Tuple[str, int, str]]:
   # fix dup test case cause of lang-ja and lang-en
-  lang_soup = soup.find('span',class_="lang-en")
+  lang_soup = soup.find('span', class_="lang-en")
   if lang_soup is None:
-    lang_soup = soup.find('span',class_="lang-ja")
+    lang_soup = soup.find('span', class_="lang-ja")
   if lang_soup is None:
     lang_soup = soup.find(id='task-statement')
   assert isinstance(lang_soup, bs4.Tag)

@@ -2,7 +2,7 @@
 
 ## auto format
 
-https://github.com/online-judge-tools/api-client/blob/a7465a60e120fab3b4f0b5de3170b43c91df8694/.github/workflows/format.yml
+<https://github.com/online-judge-tools/api-client/blob/a7465a60e120fab3b4f0b5de3170b43c91df8694/.github/workflows/format.yml>
 
 pylint
 
@@ -12,9 +12,9 @@ mypy
 
 ## Code resources
 
-https://github.com/online-judge-tools/api-client/tree/master/onlinejudge/service
+<https://github.com/online-judge-tools/api-client/tree/master/onlinejudge/service>
 
-https://github.com/competitive-programming-helper/atcoder-api
+<https://github.com/competitive-programming-helper/atcoder-api>
 
 ## Badages
 
@@ -41,10 +41,10 @@ https://github.com/competitive-programming-helper/atcoder-api
 [gh-pages-badge]: https://github.com/kagemeka/atcoder-python/actions/workflows/pages/pages-build-deployment/badge.svg
 [gh-pages-url]: https://kagemeka.github.io/atcoder-python
 
-## Tests and coverage
-
-## TODO
+## list
 
 timestamp 2 local
 
+conda replace venv
 
+move document generate out of git track and auto github generate
