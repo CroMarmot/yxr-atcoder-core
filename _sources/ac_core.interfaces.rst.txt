@@ -1,0 +1,21 @@
+ac\_core.interfaces package
+===========================
+
+Submodules
+----------
+
+ac\_core.interfaces.HttpUtil module
+-----------------------------------
+
+.. automodule:: ac_core.interfaces.HttpUtil
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ac_core.interfaces
+   :members:
+   :undoc-members:
+   :show-inheritance:

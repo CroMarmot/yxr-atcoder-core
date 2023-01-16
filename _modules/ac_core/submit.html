@@ -170,7 +170,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ac_core.html">ac_core package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.interfaces.html">ac_core.interfaces package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.modal.html">ac_core.modal package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.utils.html">ac_core.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html">setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tests.html">tests package</a></li>
 </ul>
 </li>
 </ul>
@@ -219,9 +227,9 @@
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">HTML_PARSER</span>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="SubmitResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.submit.SubmitResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">SubmitResult</span><span class="p">:</span>
-  <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
+  <span class="n">url</span><span class="p">:</span> <span class="nb">str</span></div>
 
 
 <div class="viewcode-block" id="fetch_fields"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.submit.fetch_fields">[docs]</a><span class="k">def</span> <span class="nf">fetch_fields</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>

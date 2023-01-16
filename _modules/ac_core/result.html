@@ -170,7 +170,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ac_core.html">ac_core package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.interfaces.html">ac_core.interfaces package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.modal.html">ac_core.modal package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.utils.html">ac_core.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html">setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tests.html">tests package</a></li>
 </ul>
 </li>
 </ul>
@@ -218,10 +226,10 @@
 <span class="kn">from</span> <span class="nn">.interfaces.HttpUtil</span> <span class="kn">import</span> <span class="n">HttpUtilInterface</span>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="SubmissionResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.result.SubmissionResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">SubmissionResult</span><span class="p">:</span>
 
-  <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="SubmissionResult.Status"><a class="viewcode-back" href="../../ac_core.html#ac_core.result.SubmissionResult.Status">[docs]</a>  <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">INIT</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Init&#39;</span>
     <span class="n">PENDING</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Waiting for Judging&#39;</span>
     <span class="n">RUNNING</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Judging&#39;</span>
@@ -229,18 +237,18 @@
     <span class="n">AC</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Accepted&#39;</span>
     <span class="n">WA</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Wrong Answer&#39;</span>
     <span class="n">CE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Compilation Error&#39;</span>
-    <span class="n">TLE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Time Limit Exceeded&#39;</span>
+    <span class="n">TLE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Time Limit Exceeded&#39;</span></div>
 
   <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
   <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># json url for refetch</span>
   <span class="n">score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span>
   <span class="n">status</span><span class="p">:</span> <span class="n">Status</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">INIT</span>
   <span class="n">time_cost_ms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">mem_cost_kb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">mem_cost_kb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 
-<span class="k">def</span> <span class="nf">watch_result</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># sock url, single submissions</span>
-  <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+<div class="viewcode-block" id="watch_result"><a class="viewcode-back" href="../../ac_core.html#ac_core.result.watch_result">[docs]</a><span class="k">def</span> <span class="nf">watch_result</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># sock url, single submissions</span>
+  <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 
 <span class="c1"># title=\&quot;Compilation Error\&quot;\u003eCE\u003c/span\u003e\u003c/td\u003e&quot;,&quot;Score&quot;:&quot;0&quot;</span>

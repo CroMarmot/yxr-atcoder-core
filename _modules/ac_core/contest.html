@@ -170,7 +170,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ac_core.html">ac_core package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.interfaces.html">ac_core.interfaces package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.modal.html">ac_core.modal package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ac_core.utils.html">ac_core.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html">setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tests.html">tests package</a></li>
 </ul>
 </li>
 </ul>
@@ -223,25 +231,25 @@
 <span class="kn">from</span> <span class="nn">.utils.html_parse_helper</span> <span class="kn">import</span> <span class="n">parse_start_end</span><span class="p">,</span> <span class="n">parse_url</span>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="ParserProblemResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.ParserProblemResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">ParserProblemResult</span><span class="p">():</span>
   <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">time_limit_msec</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># ms</span>
-  <span class="n">memory_limit_kb</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># kb</span>
+  <span class="n">memory_limit_kb</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># kb</span></div>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="ParserResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.ParserResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">ParserResult</span><span class="p">():</span>
   <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span>
   <span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
-  <span class="n">problems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ParserProblemResult</span><span class="p">]</span>
+  <span class="n">problems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ParserProblemResult</span><span class="p">]</span></div>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="FetchProblemResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.FetchProblemResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">FetchProblemResult</span><span class="p">:</span>
   <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
@@ -249,16 +257,16 @@
   <span class="n">score</span><span class="p">:</span> <span class="nb">int</span>
   <span class="n">time_limit_msec</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># ms</span>
   <span class="n">memory_limit_kb</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># mb</span>
-  <span class="n">tests</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ProblemTestCase</span><span class="p">]</span>
+  <span class="n">tests</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ProblemTestCase</span><span class="p">]</span></div>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="FetchResult"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.FetchResult">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">FetchResult</span><span class="p">:</span>
   <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span>
   <span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
-  <span class="n">problems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">FetchProblemResult</span><span class="p">]</span>
+  <span class="n">problems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">FetchProblemResult</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="parse_tasks"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.contest.parse_tasks">[docs]</a><span class="k">def</span> <span class="nf">parse_tasks</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ParserResult</span><span class="p">:</span>
@@ -389,15 +397,15 @@
   <span class="k">return</span> <span class="n">parse_tasks</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></div>
 
 
-<span class="nd">@dataclass_json</span>
+<div class="viewcode-block" id="TaskInfoStruct"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.TaskInfoStruct">[docs]</a><span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">TaskInfoStruct</span><span class="p">:</span>
   <span class="n">Assignment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
   <span class="n">TaskName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Middle  Letter&quot;</span>
-  <span class="n">TaskScreenName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;abc266_a&quot;</span>
+  <span class="n">TaskScreenName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;abc266_a&quot;</span></div>
 
 
-<span class="nd">@dataclass_json</span>
+<div class="viewcode-block" id="TaskResultsStruct"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.TaskResultsStruct">[docs]</a><span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">TaskResultsStruct</span><span class="p">:</span>
   <span class="n">Additional</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
@@ -409,10 +417,10 @@
   <span class="n">Pending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
   <span class="n">Score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span>
   <span class="n">Status</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">SubmissionID</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">34368488</span>
+  <span class="n">SubmissionID</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">34368488</span></div>
 
 
-<span class="nd">@dataclass_json</span>
+<div class="viewcode-block" id="TotalResultStruct"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.TotalResultStruct">[docs]</a><span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">TotalResultStruct</span><span class="p">:</span>
   <span class="n">Accepted</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span>
@@ -421,10 +429,10 @@
   <span class="n">Elapsed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2079000000000</span>
   <span class="n">Frozen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
   <span class="n">Penalty</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">Score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">320000</span>
+  <span class="n">Score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">320000</span></div>
 
 
-<span class="nd">@dataclass_json</span>
+<div class="viewcode-block" id="StandingsDataStruct"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.StandingsDataStruct">[docs]</a><span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">StandingsDataStruct</span><span class="p">:</span>
   <span class="n">Additional</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
@@ -441,10 +449,10 @@
   <span class="n">TotalResult</span><span class="p">:</span> <span class="n">TotalResultStruct</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">TotalResultStruct</span><span class="p">())</span>
   <span class="n">UserIsDeleted</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
   <span class="n">UserName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;jiangly&quot;</span>
-  <span class="n">UserScreenName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;jiangly&quot;</span>
+  <span class="n">UserScreenName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;jiangly&quot;</span></div>
 
 
-<span class="nd">@dataclass_json</span>
+<div class="viewcode-block" id="StandingStruct"><a class="viewcode-back" href="../../ac_core.html#ac_core.contest.StandingStruct">[docs]</a><span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">StandingStruct</span><span class="p">:</span>
   <span class="n">AdditionalColumns</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
@@ -455,7 +463,7 @@
 
   <span class="nd">@staticmethod</span>
   <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;StandingStruct&#39;</span><span class="p">:</span>  <span class="c1"># https://github.com/lidatong/dataclasses-json/issues/23</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="parse_standing"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.contest.parse_standing">[docs]</a><span class="k">def</span> <span class="nf">parse_standing</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StandingStruct</span><span class="p">:</span>
