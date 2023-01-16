@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Developer" href="../dev/index.html" /><link rel="prev" title="Install" href="00_install.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples" href="02_examples.html" /><link rel="prev" title="Install" href="00_install.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>Examples - yxr-atcoder-core 0.0.2 documentation</title>
+        <title>http instance - yxr-atcoder-core 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -158,7 +158,8 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">User</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="00_install.html">Install</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">http instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev/index.html">Developer</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dev/02_debug.html">Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/03_lint.html">Lint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/04_autotest.html">Auto Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -200,17 +202,17 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
+          <section id="http-instance">
+<h1>http instance<a class="headerlink" href="#http-instance" title="Permalink to this heading">#</a></h1>
 <p>Your need to provide a http <code class="docutils literal notranslate"><span class="pre">instance</span></code>, simpler you can just use <code class="docutils literal notranslate"><span class="pre">requests.session()</span></code> as your <code class="docutils literal notranslate"><span class="pre">instance</span></code></p>
 <p>Custom instance example:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.interfaces.HttpUtil</span> <span class="kn">import</span> <span class="n">HttpUtilInterface</span><span class="p">,</span><span class="n">HttpRespInterface</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.interfaces.HttpUtil</span> <span class="kn">import</span> <span class="n">HttpUtilInterface</span><span class="p">,</span><span class="n">HttpRespInterface</span>
 <span class="k">class</span> <span class="nc">Helper</span><span class="p">(</span><span class="n">HttpUtilInterface</span><span class="p">,</span><span class="n">HttpRespInterface</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
@@ -233,78 +235,6 @@
         <span class="k">return</span> <span class="bp">self</span>
 </pre></div>
 </div>
-<section id="auth">
-<h2>auth<a class="headerlink" href="#auth" title="Permalink to this heading">#</a></h2>
-<section id="login-and-check-login">
-<h3>login and check login<a class="headerlink" href="#login-and-check-login" title="Permalink to this heading">#</a></h3>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.auth</span> <span class="kn">import</span> <span class="n">fetch_login</span><span class="p">,</span> <span class="n">is_logged_in</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
-<span class="c1">#h = Helper(requests.session())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">is_logged_in</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fetch_login</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="contest">
-<h2>contest<a class="headerlink" href="#contest" title="Permalink to this heading">#</a></h2>
-<section id="parse-tasks-page">
-<h3>parse tasks page<a class="headerlink" href="#parse-tasks-page" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">ac_core.contest</span> <span class="pre">import</span> <span class="pre">parse_tasks</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">ac_core.contest</span> <span class="kn">import</span> <span class="n">parse_tasks</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://atcoder.jp/contests/abc260/tasks&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">parse_tasks</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span> <span class="c1"># pass html</span>
-</pre></div>
-</div>
-</section>
-<section id="fetch-contest">
-<h3>fetch contest<a class="headerlink" href="#fetch-contest" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">ac_core.contest</span> <span class="pre">import</span> <span class="pre">fetch_tasks</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.contest</span> <span class="kn">import</span> <span class="n">fetch_tasks</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
-<span class="c1">#h = Helper(requests.session())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fetch_tasks</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s1">&#39;abc259&#39;</span><span class="p">))</span> <span class="c1"># pass contest id</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="problem">
-<h2>problem<a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h2>
-<section id="parse-task-page">
-<h3>parse task page<a class="headerlink" href="#parse-task-page" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">ac_core.problem</span> <span class="pre">import</span> <span class="pre">parse_task</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">ac_core.problem</span> <span class="kn">import</span> <span class="n">parse_task</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://atcoder.jp/contests/abc260/tasks/abc260_a&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">parse_task</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="url">
-<h2>url<a class="headerlink" href="#url" title="Permalink to this heading">#</a></h2>
-<section id="parse-contest-id">
-<h3>parse contest id<a class="headerlink" href="#parse-contest-id" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">ac_core.url</span> <span class="pre">import</span> <span class="pre">url_2_contest_id</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.url</span> <span class="kn">import</span> <span class="n">url_2_contest_id</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">url_2_contest_id</span><span class="p">(</span><span class="s1">&#39;https://atcoder.jp/contests/abc260/tasks/abc260_b&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="language">
-<h2>language<a class="headerlink" href="#language" title="Permalink to this heading">#</a></h2>
-<section id="fetch-supported-language-and-language-id">
-<h3>fetch supported language and language id<a class="headerlink" href="#fetch-supported-language-and-language-id" title="Permalink to this heading">#</a></h3>
-</section>
-</section>
 </section>
 
         </article>
@@ -312,12 +242,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../dev/index.html">
+          <a class="next-page" href="02_examples.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Developer</div>
+                <div class="title">Examples</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -350,47 +280,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Examples</a><ul>
-<li><a class="reference internal" href="#auth">auth</a><ul>
-<li><a class="reference internal" href="#login-and-check-login">login and check login</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#contest">contest</a><ul>
-<li><a class="reference internal" href="#parse-tasks-page">parse tasks page</a></li>
-<li><a class="reference internal" href="#fetch-contest">fetch contest</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#problem">problem</a><ul>
-<li><a class="reference internal" href="#parse-task-page">parse task page</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#url">url</a><ul>
-<li><a class="reference internal" href="#parse-contest-id">parse contest id</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#language">language</a><ul>
-<li><a class="reference internal" href="#fetch-supported-language-and-language-id">fetch supported language and language id</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

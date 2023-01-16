@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples" href="01_examples.html" /><link rel="prev" title="User" href="index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="http instance" href="01_http_instance.html" /><link rel="prev" title="User" href="index.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Install - yxr-atcoder-core 0.0.2 documentation</title>
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -158,7 +158,8 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">User</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_http_instance.html">http instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev/index.html">Developer</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dev/02_debug.html">Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/03_lint.html">Lint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/04_autotest.html">Auto Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -200,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -208,9 +210,21 @@
         <article role="main">
           <section id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>yxr-atcoder-core
+<section id="with-github">
+<h2>with github<a class="headerlink" href="#with-github" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">CroMarmot</span><span class="o">/</span><span class="n">yxr</span><span class="o">-</span><span class="n">atcoder</span><span class="o">-</span><span class="n">core</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">yxr</span><span class="o">-</span><span class="n">atcoder</span><span class="o">-</span><span class="n">core</span>
+<span class="c1"># Install at local</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span> <span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">settings</span> <span class="n">editable_mode</span><span class="o">=</span><span class="n">compat</span>
 </pre></div>
 </div>
+</section>
+<section id="future-not-support-yet-wip">
+<h2>Future(NOT SUPPORT YET!WIP)<a class="headerlink" href="#future-not-support-yet-wip" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">yxr</span><span class="o">-</span><span class="n">atcoder</span><span class="o">-</span><span class="n">core</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -218,12 +232,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="01_examples.html">
+          <a class="next-page" href="01_http_instance.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Examples</div>
+                <div class="title">http instance</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -256,8 +270,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Install</a><ul>
+<li><a class="reference internal" href="#with-github">with github</a></li>
+<li><a class="reference internal" href="#future-not-support-yet-wip">Future(NOT SUPPORT YET!WIP)</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -1,5 +1,12 @@
 # Install
 
+## Clone
+
+```bash
+git clone git@github.com:CroMarmot/yxr-atcoder-core.git
+cd yxr-atcoder-core
+```
+
 ## Setup venv
 
 ```bash

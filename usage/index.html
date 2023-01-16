@@ -158,7 +158,8 @@
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">User</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="00_install.html">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_http_instance.html">http instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev/index.html">Developer</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dev/02_debug.html">Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/03_lint.html">Lint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/04_autotest.html">Auto Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -211,13 +213,50 @@
 <p>Quick Start</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="00_install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html#auth">auth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html#contest">contest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html#problem">problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html#url">url</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_examples.html#language">language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="00_install.html#with-github">with github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_install.html#future-not-support-yet-wip">Future(NOT SUPPORT YET!WIP)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01_http_instance.html">http instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.auth">ac_core.auth module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.auth.fetch_login"><code class="docutils literal notranslate"><span class="pre">fetch_login()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.auth.is_logged_in"><code class="docutils literal notranslate"><span class="pre">is_logged_in()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.contest">ac_core.contest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.contest.fetch_standing"><code class="docutils literal notranslate"><span class="pre">fetch_standing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.contest.fetch_tasks"><code class="docutils literal notranslate"><span class="pre">fetch_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.contest.fetch_tasks_meta"><code class="docutils literal notranslate"><span class="pre">fetch_tasks_meta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.contest.parse_standing"><code class="docutils literal notranslate"><span class="pre">parse_standing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.contest.parse_tasks"><code class="docutils literal notranslate"><span class="pre">parse_tasks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.language">ac_core.language module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.language.fetch_language"><code class="docutils literal notranslate"><span class="pre">fetch_language()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.problem">ac_core.problem module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.problem.parse_task"><code class="docutils literal notranslate"><span class="pre">parse_task()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.result">ac_core.result module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.result.fetch_result"><code class="docutils literal notranslate"><span class="pre">fetch_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.result.fetch_result_by_url"><code class="docutils literal notranslate"><span class="pre">fetch_result_by_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.result.parse_result"><code class="docutils literal notranslate"><span class="pre">parse_result()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.submit">ac_core.submit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.submit.fetch_fields"><code class="docutils literal notranslate"><span class="pre">fetch_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.submit.fetch_submit"><code class="docutils literal notranslate"><span class="pre">fetch_submit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.submit.problem_url_2_submit_url"><code class="docutils literal notranslate"><span class="pre">problem_url_2_submit_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_examples.html#module-ac_core.url">ac_core.url module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_examples.html#ac_core.url.url_2_contest_id"><code class="docutils literal notranslate"><span class="pre">url_2_contest_id()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

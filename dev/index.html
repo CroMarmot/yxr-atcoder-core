@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Install" href="00_install.html" /><link rel="prev" title="Examples" href="../usage/01_examples.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Install" href="00_install.html" /><link rel="prev" title="Examples" href="../usage/02_examples.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Developer - yxr-atcoder-core 0.0.2 documentation</title>
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -158,7 +158,8 @@
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/index.html">User</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../usage/00_install.html">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usage/01_examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/01_http_instance.html">http instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/02_examples.html">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_debug.html">Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_lint.html">Lint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_autotest.html">Auto Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -200,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -208,9 +210,12 @@
         <article role="main">
           <section id="developer">
 <h1>Developer<a class="headerlink" href="#developer" title="Permalink to this heading">#</a></h1>
+<section id="menu">
+<h2>Menu<a class="headerlink" href="#menu" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="00_install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="00_install.html#clone">Clone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="00_install.html#setup-venv">Setup venv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="00_install.html#enable-venv">Enable venv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="00_install.html#install-dependencies">Install dependencies</a></li>
@@ -218,7 +223,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="01_doc.html">Doc</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="01_doc.html#generate-html-doc">Generate html doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_doc.html#generate-static-html-doc">Generate static html doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_doc.html#live-doc">Live doc</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_debug.html">Debug</a></li>
@@ -230,8 +236,20 @@
 <li class="toctree-l2"><a class="reference internal" href="04_autotest.html#static-gen">Static gen</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="05_rst_examples.html">rst Examples</a></li>
 </ul>
 </div>
+</section>
+<section id="lib-in-use">
+<h2>Lib in use<a class="headerlink" href="#lib-in-use" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/">requests</a> for simulation of the request</p></li>
+<li><p><a class="reference external" href="https://beautiful-soup-4.readthedocs.io/">BeatufulSoup4</a> and <code class="docutils literal notranslate"><span class="pre">lxml</span></code> for parse html</p></li>
+<li><p><a class="reference external" href="https://github.com/google/yapf">yapf</a> for code linting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dataclasses</span></code> and <code class="docutils literal notranslate"><span class="pre">dataclasses-json</span></code> for transform between class and dict</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> for automatically generate documentation</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -248,7 +266,7 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../usage/01_examples.html">
+          <a class="prev-page" href="../usage/02_examples.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
@@ -277,8 +295,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Developer</a><ul>
+<li><a class="reference internal" href="#menu">Menu</a></li>
+<li><a class="reference internal" href="#lib-in-use">Lib in use</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

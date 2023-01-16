@@ -158,7 +158,8 @@
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/index.html">User</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../usage/00_install.html">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../usage/01_examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/01_http_instance.html">http instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/02_examples.html">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_debug.html">Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_lint.html">Lint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_autotest.html">Auto Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -209,13 +211,31 @@
           <section id="doc">
 <h1>Doc<a class="headerlink" href="#doc" title="Permalink to this heading">#</a></h1>
 <p>auto generate from code</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc<span class="w"> </span>-o<span class="w"> </span>docs/<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc<span class="w"> </span>-o<span class="w"> </span>docs/<span class="w"> </span>.<span class="w"> </span>-f
 </pre></div>
 </div>
-<section id="generate-html-doc">
-<h2>Generate html doc<a class="headerlink" href="#generate-html-doc" title="Permalink to this heading">#</a></h2>
+<p>This will force overwriting the files list below</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>docs/setup.rst.
+docs/ac_core.rst.
+docs/ac_core.interfaces.rst.
+docs/ac_core.modal.rst.
+docs/ac_core.utils.rst.
+docs/tests.rst.
+docs/modules.rst.
+</pre></div>
+</div>
+<section id="generate-static-html-doc">
+<h2>Generate static html doc<a class="headerlink" href="#generate-static-html-doc" title="Permalink to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
 make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>The output file is at <code class="docutils literal notranslate"><span class="pre">./docs/_build/html/</span></code></p>
+</section>
+<section id="live-doc">
+<h2>Live doc<a class="headerlink" href="#live-doc" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+sphinx-autobuild<span class="w"> </span>.<span class="w"> </span>./_build/html/
 </pre></div>
 </div>
 </section>
@@ -277,7 +297,8 @@ make<span class="w"> </span>html
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Doc</a><ul>
-<li><a class="reference internal" href="#generate-html-doc">Generate html doc</a></li>
+<li><a class="reference internal" href="#generate-static-html-doc">Generate static html doc</a></li>
+<li><a class="reference internal" href="#live-doc">Live doc</a></li>
 </ul>
 </li>
 </ul>

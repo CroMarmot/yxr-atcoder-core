@@ -4,7 +4,8 @@ User
 Quick Start
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     00_install
-    01_examples
+    01_http_instance
+    02_examples
