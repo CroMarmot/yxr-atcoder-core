@@ -3,7 +3,6 @@
 Install at local for debug
 
 ```bash
-cd <code folder>
 pip3 install -e . --config-settings editable_mode=compat
 ```
 

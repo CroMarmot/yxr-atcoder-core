@@ -138,6 +138,21 @@ def _parse_sample_cases(soup: BeautifulSoup) -> List[ProblemTestCase]:
 
 
 def parse_task(html: str) -> ProblemResult:
+  """parse problem page html to structured data
+  
+    :param html: the html source get from ``https://atcoder.jp/contests/{contest_id}/tasks/{problem_id}``
+
+    :examples:
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.problem import parse_task
+
+        r = requests.get('https://atcoder.jp/contests/abc260/tasks/abc260_a')
+        if r.status_code == 200:
+            print(parse_task(r.text))
+  """
   soup = BeautifulSoup(html, HTML_PARSER)
   h2 = soup.find('span', class_='h2')
   assert isinstance(h2, bs4.Tag)

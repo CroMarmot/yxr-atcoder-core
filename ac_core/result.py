@@ -23,7 +23,7 @@ class SubmissionResult:
     TLE: str = 'Time Limit Exceeded'
 
   id: str = ''
-  url: str = ''
+  url: str = '' # json url for refetch
   score: int = 500
   status: Status = Status.INIT
   time_cost_ms: int = 0
@@ -36,6 +36,20 @@ def watch_result(url: str) -> str:  # sock url, single submissions
 
 # title=\"Compilation Error\"\u003eCE\u003c/span\u003e\u003c/td\u003e","Score":"0"
 def parse_result(resp: str) -> SubmissionResult:
+  """parse submit result get from json result
+    :param resp: the json result get from ``https://atcoder.jp/contests/{contest_id}/submissions/me/status/json?sids[]={submision id}``
+
+    :examples:
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.result import parse_result
+
+        r = requests.get('https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077')
+        if r.status_code == 200:
+            print(parse_result(r.text)) # pass html
+  """
   res = json.loads(resp)["Result"]
   sub_id = list(res.keys())[0]
   soup = BeautifulSoup(res[sub_id]["Html"], "lxml")
@@ -64,6 +78,33 @@ def parse_result(resp: str) -> SubmissionResult:
 
 
 def fetch_result_by_url(http_util: HttpUtilInterface, json_url: str) -> SubmissionResult:
+  """parse submit result by *http_util* with submission *json_url*.
+  
+    :param http_util: e.g. ``requests.session()``
+    :param json_url: e.g. ``https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077``
+
+    :examples:
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.result import fetch_result_by_url
+        print(fetch_result_by_url(requests.session(),'https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077'))
+
+    the structured data returned by :py:func:`fetch_result` has the submission json url
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.auth import fetch_login, is_logged_in
+        from ac_core.result import fetch_result, fetch_result_by_url
+
+        h = requests.session()
+        fetch_login(h, 'username', 'password')
+        assert(is_logged_in(h))
+        result = fetch_result(h,'https://atcoder.jp/contests/abc275/tasks/abc275_f')
+        print(fetch_result_by_url(h,result.url))
+  """
   print(json_url)
   response = http_util.get(url=json_url)
   ret = parse_result(resp=response.text)
@@ -90,8 +131,27 @@ def _parse_json_url(html: str):
   return os.path.join(_SITE_URL, f"contests/{r.group(1)}/submissions/me/status/json?sids[]={r.group(2)}")
 
 
-# problem_url https://atcoder.jp/contests/abc275/tasks/abc275_f
 def fetch_result(http_util: HttpUtilInterface, problem_url: str) -> SubmissionResult:
+  """parse submit result by *http_util* with *problem_url*.
+    
+    You need logged in before using this method. This function will find your last submission for the problem.
+  
+    :param http_util: e.g. ``requests.session()``
+    :param problem_url: e.g. ``https://atcoder.jp/contests/abc275/tasks/abc275_f``
+
+    :examples:
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.auth import fetch_login, is_logged_in
+        from ac_core.result import fetch_result
+
+        h = requests.session()
+        fetch_login(h, 'username', 'password')
+        assert(is_logged_in(h))
+        print(fetch_result(h,'https://atcoder.jp/contests/abc275/tasks/abc275_f'))
+  """
   # https://atcoder.jp/contests/abc275/submissions/me?f.Task=abc275_f
   submission_url = _problem_url_to_sub_url(problem_url)
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>

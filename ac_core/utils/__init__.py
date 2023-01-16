@@ -25,7 +25,8 @@ def time_str_2_timestamp(s: str) -> int:
 
 def get_direct_children_text(tag: bs4.Tag) -> str:
   """get_direct_children_text collects the text which are direct children of the given tag.
-    For example, this returns "A - Hello world " for a tag `<h2>A - Hello world <a href="...">Editorial</a></h2>`.
+    
+    For example, this returns "A - Hello world " for a tag ``<h2>A - Hello world <a href="...">Editorial</a></h2>``.
     """
 
   assert isinstance(tag, bs4.Tag)

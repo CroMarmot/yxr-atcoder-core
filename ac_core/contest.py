@@ -53,6 +53,20 @@ class FetchResult:
 
 
 def parse_tasks(html: str) -> ParserResult:
+  """parse tasks page, this method will not parse the detail page(such as testcases) of the tasks
+
+    :param html: the html source get from ``https://atcoder.jp/contests/{contests_id}/tasks``
+
+    :examples:
+    .. code-block::
+    
+        import requests
+        from ac_core.contest import parse_tasks
+
+        r = requests.get('https://atcoder.jp/contests/abc260/tasks')
+        if r.status_code == 200:
+            print(parse_tasks(r.text)) # pass html
+  """
   soup = BeautifulSoup(html, HTML_PARSER)
   problems: List[ParserProblemResult] = []
 
@@ -103,6 +117,16 @@ def parse_tasks(html: str) -> ParserResult:
 
 
 def fetch_tasks(http_util: HttpUtilInterface, contest_id: str) -> FetchResult:
+  """Fetch tasks with http_util and contest_id, this methods will parse both meta info of tasks and the detail page of tasks
+
+    :examples:
+
+    .. code-block:: 
+
+        import requests
+        from ac_core.contest import fetch_tasks
+        print(fetch_tasks(requests.session(), 'abc259')) # pass contest id
+  """
   contest_url = _SITE_URL + '/contests/' + contest_id + '/tasks'
   contest_resp = http_util.get(contest_url)
   assert contest_resp.status_code == 200
@@ -138,6 +162,18 @@ def fetch_tasks(http_util: HttpUtilInterface, contest_id: str) -> FetchResult:
 
 
 def fetch_tasks_meta(http_util: HttpUtilInterface, contest_id: str) -> ParserResult:
+  """fetch tasks page by *http_util* with *contest_id*, and then parse the tasks' meta info with :py:func:`parse_tasks()`
+
+    :param http_util: e.g. ``requests.session()``
+    :param contest_id: the number in contest url, e.g. ``abc123``
+
+    :examples:
+    .. code-block::
+    
+        import requests
+        from ac_core.contest import fetch_tasks_meta
+        print(fetch_tasks_meta(requests.session(), 'abc260'))
+  """
   url = os.path.join(_SITE_URL, 'contests', contest_id, 'tasks')
   resp = http_util.get(url)
   assert resp.status_code == 200
@@ -214,11 +250,36 @@ class StandingStruct:
 
 
 def parse_standing(html: str) -> StandingStruct:
+  """parse json standings to struct
+
+    :param html: the html data get from ``https://atcoder.jp/contests/{contest_id}/standings/json``
+    
+    :examples:
+    .. code-block::
+
+        import requests
+        from ac_core.contest import parse_standing
+        r = requests.get('https://atcoder.jp/contests/abc260/standings/json')
+        if r.status_code == 200:
+            print(parse_standing(r.text)) # pass html
+  """
   json_res = json.loads(html)
   return StandingStruct.from_dict(json_res)
 
 
 def fetch_standing(http_util: HttpUtilInterface, contest_id: str) -> StandingStruct:
+  """parse standings with http_util to struct
+
+    :param http_util: e.g. ``requests.session()``
+    :param contest_id: the number in contest url, e.g. ``abc123``
+
+    :examples:
+    .. code-block::
+
+        import requests
+        from ac_core.contest import fetch_standing
+        print(fetch_standing(requests.session(), 'abc260'))
+  """
   url = f'https://atcoder.jp/contests/{contest_id}/standings/json'
   res = http_util.get(url)
   assert res.status_code == 200

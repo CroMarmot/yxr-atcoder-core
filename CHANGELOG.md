@@ -2,6 +2,8 @@
 
 ## 0.0.2 - WIP
 
+- doc with sphinx
+
 ## [0.0.1] - 2022.07
 
 ### Changed

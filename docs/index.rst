@@ -6,6 +6,9 @@
 Welcome to yxr-atcoder-core's documentation!
 ============================================
 
+Some Atcoder core api with python3.7+
+
+
 .. toctree::
    :maxdepth: 2
    :hidden:
@@ -14,8 +17,6 @@ Welcome to yxr-atcoder-core's documentation!
    usage/index
    dev/index
    modules 
-
-
 
 Indices and tables
 ==================

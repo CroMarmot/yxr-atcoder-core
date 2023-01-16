@@ -6,9 +6,15 @@ from .utils import remove_suffix
 
 def url_2_contest_id(url: str) -> str:
   """
-  :param url: example:
-  -   https://kupc2014.contest.atcoder.jp/tasks/kupc2014_d
-  -   https://atcoder.jp/contests/agc030
+  :param url: example: ``https://atcoder.jp/contests/agc030``
+  :returns: contest id. e.g. 'agc030'
+
+  Examples:
+
+  .. code-block:: 
+
+      from ac_core.url import url_2_contest_id
+      print(url_2_contest_id('https://atcoder.jp/contests/abc260/tasks/abc260_b'))
   """
 
   result = urlparse(url)
@@ -25,3 +31,4 @@ def url_2_contest_id(url: str) -> str:
     if m:
       return m.group(1)
   assert False
+

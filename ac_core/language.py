@@ -14,6 +14,21 @@ class LanguageKV:
 
 
 def fetch_language(http_util: HttpUtilInterface) -> List[LanguageKV]:
+  """Fetch language key and values, need to have logged into atcoder. You can use :py:func:`ac_core.auth.fetch_login()` for login.
+
+    :param http_util: e.g. ``requests.session()``
+
+    :examples:
+    .. code-block::
+    
+        import requests
+        from ac_core.auth import fetch_login, is_logged_in
+        from ac_core.language import fetch_language
+        h = requests.session()
+        fetch_login(h, 'username', 'password')
+        assert(is_logged_in(h))
+        print(fetch_language(h))
+  """
   url = _SITE_URL + '/contests/practice/submit'
   resp = http_util.get(url)
   assert resp.status_code == 200
