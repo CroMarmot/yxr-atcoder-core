@@ -220,7 +220,7 @@
 <span class="kn">from</span> <span class="nn">tests.constant</span> <span class="kn">import</span> <span class="n">test_dir</span>
 
 
-<div class="viewcode-block" id="test_parse_result"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_result">[docs]</a><span class="k">def</span> <span class="nf">test_parse_result</span><span class="p">():</span>
+<div class="viewcode-block" id="test_parse_result_0"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_result_0">[docs]</a><span class="k">def</span> <span class="nf">test_parse_result_0</span><span class="p">():</span>
   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc275_f_result.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
   <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
@@ -230,6 +230,29 @@
   <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">AC</span>
   <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">84</span>
   <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">74320</span></div>
+
+<div class="viewcode-block" id="test_parse_result_1"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_result_1">[docs]</a><span class="k">def</span> <span class="nf">test_parse_result_1</span><span class="p">():</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc284_submissions_38109148.1.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;38109148&quot;</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">RUNNING</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">msg_txt</span> <span class="o">==</span> <span class="s1">&#39;1/20&#39;</span>
+
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc284_submissions_38109148.2.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">300</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;38109148&quot;</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">AC</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">7</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">3776</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">msg_txt</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span></div>
 
 
 <div class="viewcode-block" id="test_problem_url_to_submission_url"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_problem_url_to_submission_url">[docs]</a><span class="k">def</span> <span class="nf">test_problem_url_to_submission_url</span><span class="p">():</span>

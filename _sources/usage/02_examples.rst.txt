@@ -35,7 +35,7 @@ ac\_core.submit module
 ----------------------
 
 .. automodule:: ac_core.submit
-   :members: fetch_fields, fetch_submit, problem_url_2_submit_url
+   :members: fetch_submit 
 
 ac\_core.url module
 -------------------

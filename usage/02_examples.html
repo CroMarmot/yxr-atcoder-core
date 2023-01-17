@@ -510,13 +510,6 @@
 <section id="module-ac_core.submit">
 <span id="ac-core-submit-module"></span><h2>ac_core.submit module<a class="headerlink" href="#module-ac_core.submit" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.submit.fetch_fields">
-<span class="sig-prename descclassname"><span class="pre">ac_core.submit.</span></span><span class="sig-name descname"><span class="pre">fetch_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ac_core/submit.html#fetch_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.submit.fetch_fields" title="Permalink to this definition">#</a></dt>
-<dd><p>parse necessary fields for requests header such as ‘csrf_token’
-:param html: the html source from <code class="docutils literal notranslate"><span class="pre">https://atcoder.jp/contests/{contest_id}/submit</span></code></p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="ac_core.submit.fetch_submit">
 <span class="sig-prename descclassname"><span class="pre">ac_core.submit.</span></span><span class="sig-name descname"><span class="pre">fetch_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpRespInterface" title="ac_core.interfaces.HttpUtil.HttpRespInterface"><span class="pre">HttpRespInterface</span></a></span></span><a class="reference internal" href="../_modules/ac_core/submit.html#fetch_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.submit.fetch_submit" title="Permalink to this definition">#</a></dt>
 <dd><p>Submit code. You need logged in before using this method.</p>
@@ -540,26 +533,6 @@
 <span class="n">fetch_login</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">)</span>
 <span class="k">assert</span><span class="p">(</span><span class="n">is_logged_in</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fetch_submit</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s1">&#39;https://atcoder.jp/contests/abc285/tasks/abc285_a&#39;</span><span class="p">,</span><span class="s1">&#39;4006&#39;</span><span class="p">,</span><span class="s1">&#39;print(&quot;hello world.&quot;)&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ac_core.submit.problem_url_2_submit_url">
-<span class="sig-prename descclassname"><span class="pre">ac_core.submit.</span></span><span class="sig-name descname"><span class="pre">problem_url_2_submit_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/ac_core/submit.html#problem_url_2_submit_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.submit.problem_url_2_submit_url" title="Permalink to this definition">#</a></dt>
-<dd><p>covert tool for problem_url to submit_url.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>problem_url</strong> – e.g. <code class="docutils literal notranslate"><span class="pre">'https://atcoder.jp/contests/abc285/tasks/abc285_a'</span></code></p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>problem_url e.g. <code class="docutils literal notranslate"><span class="pre">'https://atcoder.jp/contests/abc285/submit'</span></code></p>
-</dd>
-<dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ac_core.submit</span> <span class="kn">import</span> <span class="n">problem_url_2_submit_url</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">problem_url_2_submit_url</span><span class="p">(</span><span class="s1">&#39;https://atcoder.jp/contests/abc285/tasks/abc285_a&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -672,9 +645,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-ac_core.submit">ac_core.submit module</a><ul>
-<li><a class="reference internal" href="#ac_core.submit.fetch_fields"><code class="docutils literal notranslate"><span class="pre">fetch_fields()</span></code></a></li>
 <li><a class="reference internal" href="#ac_core.submit.fetch_submit"><code class="docutils literal notranslate"><span class="pre">fetch_submit()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.submit.problem_url_2_submit_url"><code class="docutils literal notranslate"><span class="pre">problem_url_2_submit_url()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-ac_core.url">ac_core.url module</a><ul>
