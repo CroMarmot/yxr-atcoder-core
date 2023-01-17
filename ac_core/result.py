@@ -28,6 +28,7 @@ class SubmissionResult:
   status: Status = Status.INIT
   time_cost_ms: int = 0
   mem_cost_kb: int = 0
+  msg_txt: str = ''
 
 
 def watch_result(url: str) -> str:  # sock url, single submissions
@@ -54,7 +55,7 @@ def parse_result(resp: str) -> SubmissionResult:
   sub_id = list(res.keys())[0]
   soup = BeautifulSoup(res[sub_id]["Html"], "lxml")
   tds = soup.find_all('td')
-  status = str(tds[0].find('span').attrs.get('title'))
+  status = SubmissionResult.Status(str(tds[0].find('span').attrs.get('title')))
   try:
     score = int(res[sub_id]["Score"])
   except:
@@ -68,12 +69,17 @@ def parse_result(resp: str) -> SubmissionResult:
     mem_cost_kb = int(tds[2].text.split(" ")[0])
   except:
     mem_cost_kb = 0
+
+  msg_txt = ''
+  if status == SubmissionResult.Status.RUNNING:
+    msg_txt = soup.text.strip()
   return SubmissionResult(
       id=sub_id,
       score=score,
-      status=SubmissionResult.Status(status),
+      status=status,
       time_cost_ms=time_cost_ms,
       mem_cost_kb=mem_cost_kb,
+      msg_txt=msg_txt,
   )
 
 
@@ -105,7 +111,6 @@ def fetch_result_by_url(http_util: HttpUtilInterface, json_url: str) -> Submissi
         result = fetch_result(h,'https://atcoder.jp/contests/abc275/tasks/abc275_f')
         print(fetch_result_by_url(h,result.url))
   """
-  print(json_url)
   response = http_util.get(url=json_url)
   ret = parse_result(resp=response.text)
   ret.url = json_url
@@ -156,7 +161,6 @@ def fetch_result(http_util: HttpUtilInterface, problem_url: str) -> SubmissionRe
   submission_url = _problem_url_to_sub_url(problem_url)
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>
   # https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077
-  print(submission_url)
   resp = http_util.get(submission_url)
   json_url = _parse_json_url(resp.text)
   return fetch_result_by_url(http_util, json_url)

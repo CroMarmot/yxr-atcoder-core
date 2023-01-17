@@ -3,6 +3,7 @@
 ## 0.0.2 - WIP
 
 - doc with sphinx
+- submission can get current progress
 
 ## [0.0.1] - 2022.07
 
