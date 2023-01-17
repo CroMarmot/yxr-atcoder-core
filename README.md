@@ -4,9 +4,9 @@
 [![pages-build-deployment](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment)
 
 ![python3.7+](https://shields.io/badge/python-3.7+-green?logo=python)
-![requests](https://shields.io/badge/requests-2.27-green)
-![BeautifulSoup4](https://shields.io/badge/BeautifulSoup-4.10-green)
-![lxml](https://shields.io/badge/lxml-4.7-green)
+![requests](https://shields.io/badge/requests-2-green)
+![BeautifulSoup4](https://shields.io/badge/BeautifulSoup-4-green)
+![lxml](https://shields.io/badge/lxml-4-green)
 ![yapf](https://shields.io/badge/yapf-0.32-green)
 ![sphinx](https://shields.io/badge/Sphinx-5-green)
 
@@ -42,8 +42,6 @@ Based on this library, you can easily build command-line programs and intermedia
   - fetch_result_by_url()
   - parse_result()
 - ac_core.submit module
-  - fetch_fields()
   - fetch_submit()
-  - problem_url_2_submit_url()
 - ac_core.url module
   - url_2_contest_id()
