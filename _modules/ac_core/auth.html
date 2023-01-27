@@ -260,13 +260,13 @@
 
 
 <div class="viewcode-block" id="fetch_login"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.auth.fetch_login">[docs]</a><span class="k">def</span> <span class="nf">fetch_login</span><span class="p">(</span><span class="n">http_util</span><span class="p">:</span> <span class="n">HttpUtilInterface</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;This method will use ``http_util`` for login request</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;This method will use ``http_util`` for login request and :py:func:`is_logged_in()` for login check</span>
 
 <span class="sd">    :param http_util: a http instance, for example ``requests.session()``</span>
 <span class="sd">    :param username: AtCoder username</span>
 <span class="sd">    :param password: AtCoder password </span>
 
-<span class="sd">    :returns: if it is successful post, no logged in to check, please refer :py:func:`is_logged_in()`</span>
+<span class="sd">    :returns: if it is successful post and logged</span>
 
 <span class="sd">    :examples:</span>
 
@@ -292,6 +292,7 @@
     <span class="n">http_util</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://atcoder.jp/login&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">)</span>
   <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
   <span class="k">return</span> <span class="n">is_logged_in</span><span class="p">(</span><span class="n">http_util</span><span class="p">)</span></div>
 
 
