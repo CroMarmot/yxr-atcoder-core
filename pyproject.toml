@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "yxr-atcoder-core"
 description = "Simple Atcoder core api"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="YeXiaoRain", email="yexiaorain@gmail.com" }
 ]

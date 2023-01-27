@@ -43,13 +43,13 @@ def is_logged_in(http_util: HttpUtilInterface) -> bool:
 
 
 def fetch_login(http_util: HttpUtilInterface, username: str, password: str) -> bool:
-  """This method will use ``http_util`` for login request
+  """This method will use ``http_util`` for login request and :py:func:`is_logged_in()` for login check
 
     :param http_util: a http instance, for example ``requests.session()``
     :param username: AtCoder username
     :param password: AtCoder password 
 
-    :returns: if it is successful post, no logged in to check, please refer :py:func:`is_logged_in()`
+    :returns: if it is successful post and logged
 
     :examples:
 
@@ -75,6 +75,7 @@ def fetch_login(http_util: HttpUtilInterface, username: str, password: str) -> b
     http_util.post(url='https://atcoder.jp/login', data=post_data)
   except Exception as e:
     logger.exception(e)
+    return False
   return is_logged_in(http_util)
 
 
