@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Developer" href="../dev/index.html" /><link rel="prev" title="http instance" href="01_http_instance.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Examples - yxr-atcoder-core 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -218,12 +218,12 @@
         <article role="main">
           <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
-<section id="module-ac_core.auth">
-<span id="ac-core-auth-module"></span><h2>ac_core.auth module<a class="headerlink" href="#module-ac_core.auth" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-auth-module">
+<h2>ac_core.auth module<a class="headerlink" href="#ac-core-auth-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.auth.fetch_login">
-<span class="sig-prename descclassname"><span class="pre">ac_core.auth.</span></span><span class="sig-name descname"><span class="pre">fetch_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/ac_core/auth.html#fetch_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.auth.fetch_login" title="Permalink to this definition">#</a></dt>
-<dd><p>This method will use <code class="docutils literal notranslate"><span class="pre">http_util</span></code> for login request and <a class="reference internal" href="#ac_core.auth.is_logged_in" title="ac_core.auth.is_logged_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_logged_in()</span></code></a> for login check</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.auth.</span></span><span class="sig-name descname"><span class="pre">fetch_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/ac_core/auth.html#fetch_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This method will use <code class="docutils literal notranslate"><span class="pre">http_util</span></code> for login request and <a class="reference internal" href="../ac_core.html#ac_core.auth.is_logged_in" title="ac_core.auth.is_logged_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_logged_in()</span></code></a> for login check</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -250,8 +250,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.auth.is_logged_in">
-<span class="sig-prename descclassname"><span class="pre">ac_core.auth.</span></span><span class="sig-name descname"><span class="pre">is_logged_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/ac_core/auth.html#is_logged_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.auth.is_logged_in" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.auth.</span></span><span class="sig-name descname"><span class="pre">is_logged_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/ac_core/auth.html#is_logged_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>This method will use <code class="docutils literal notranslate"><span class="pre">http_util</span></code> for login check by visit atcoder site and parse html</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -275,11 +275,11 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.contest">
-<span id="ac-core-contest-module"></span><h2>ac_core.contest module<a class="headerlink" href="#module-ac_core.contest" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-contest-module">
+<h2>ac_core.contest module<a class="headerlink" href="#ac-core-contest-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.contest.fetch_standing">
-<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_standing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.StandingStruct" title="ac_core.contest.StandingStruct"><span class="pre">StandingStruct</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_standing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.contest.fetch_standing" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_standing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.StandingStruct" title="ac_core.contest.StandingStruct"><span class="pre">StandingStruct</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_standing"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse standings with http_util to struct</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -299,8 +299,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.contest.fetch_tasks">
-<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.FetchResult" title="ac_core.contest.FetchResult"><span class="pre">FetchResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.contest.fetch_tasks" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.FetchResult" title="ac_core.contest.FetchResult"><span class="pre">FetchResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Fetch tasks with http_util and contest_id, this methods will parse both meta info of tasks and the detail page of tasks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
@@ -314,9 +314,9 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.contest.fetch_tasks_meta">
-<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_tasks_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.ParserResult" title="ac_core.contest.ParserResult"><span class="pre">ParserResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_tasks_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.contest.fetch_tasks_meta" title="Permalink to this definition">#</a></dt>
-<dd><p>fetch tasks page by <em>http_util</em> with <em>contest_id</em>, and then parse the tasks’ meta info with <a class="reference internal" href="#ac_core.contest.parse_tasks" title="ac_core.contest.parse_tasks"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_tasks()</span></code></a></p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">fetch_tasks_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contest_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.ParserResult" title="ac_core.contest.ParserResult"><span class="pre">ParserResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#fetch_tasks_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>fetch tasks page by <em>http_util</em> with <em>contest_id</em>, and then parse the tasks’ meta info with <a class="reference internal" href="../ac_core.html#ac_core.contest.parse_tasks" title="ac_core.contest.parse_tasks"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_tasks()</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -335,8 +335,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.contest.parse_standing">
-<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">parse_standing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.StandingStruct" title="ac_core.contest.StandingStruct"><span class="pre">StandingStruct</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#parse_standing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.contest.parse_standing" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">parse_standing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.StandingStruct" title="ac_core.contest.StandingStruct"><span class="pre">StandingStruct</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#parse_standing"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse json standings to struct</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -355,8 +355,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.contest.parse_tasks">
-<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">parse_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.ParserResult" title="ac_core.contest.ParserResult"><span class="pre">ParserResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#parse_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.contest.parse_tasks" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.contest.</span></span><span class="sig-name descname"><span class="pre">parse_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.contest.ParserResult" title="ac_core.contest.ParserResult"><span class="pre">ParserResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/contest.html#parse_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse tasks page, this method will not parse the detail page(such as testcases) of the tasks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -376,12 +376,12 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.language">
-<span id="ac-core-language-module"></span><h2>ac_core.language module<a class="headerlink" href="#module-ac_core.language" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-language-module">
+<h2>ac_core.language module<a class="headerlink" href="#ac-core-language-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.language.fetch_language">
-<span class="sig-prename descclassname"><span class="pre">ac_core.language.</span></span><span class="sig-name descname"><span class="pre">fetch_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ac_core.html#ac_core.language.LanguageKV" title="ac_core.language.LanguageKV"><span class="pre">LanguageKV</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ac_core/language.html#fetch_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.language.fetch_language" title="Permalink to this definition">#</a></dt>
-<dd><p>Fetch language key and values, need to have logged into atcoder. You can use <a class="reference internal" href="#ac_core.auth.fetch_login" title="ac_core.auth.fetch_login"><code class="xref py py-func docutils literal notranslate"><span class="pre">ac_core.auth.fetch_login()</span></code></a> for login.</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.language.</span></span><span class="sig-name descname"><span class="pre">fetch_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ac_core.html#ac_core.language.LanguageKV" title="ac_core.language.LanguageKV"><span class="pre">LanguageKV</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ac_core/language.html#fetch_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fetch language key and values, need to have logged into atcoder. You can use <a class="reference internal" href="../ac_core.html#ac_core.auth.fetch_login" title="ac_core.auth.fetch_login"><code class="xref py py-func docutils literal notranslate"><span class="pre">ac_core.auth.fetch_login()</span></code></a> for login.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>http_util</strong> – e.g. <code class="docutils literal notranslate"><span class="pre">requests.session()</span></code></p>
@@ -401,11 +401,11 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.problem">
-<span id="ac-core-problem-module"></span><h2>ac_core.problem module<a class="headerlink" href="#module-ac_core.problem" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-problem-module">
+<h2>ac_core.problem module<a class="headerlink" href="#ac-core-problem-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.problem.parse_task">
-<span class="sig-prename descclassname"><span class="pre">ac_core.problem.</span></span><span class="sig-name descname"><span class="pre">parse_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.problem.ProblemResult" title="ac_core.problem.ProblemResult"><span class="pre">ProblemResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/problem.html#parse_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.problem.parse_task" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.problem.</span></span><span class="sig-name descname"><span class="pre">parse_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.problem.ProblemResult" title="ac_core.problem.ProblemResult"><span class="pre">ProblemResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/problem.html#parse_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse problem page html to structured data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -425,11 +425,11 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.result">
-<span id="ac-core-result-module"></span><h2>ac_core.result module<a class="headerlink" href="#module-ac_core.result" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-result-module">
+<h2>ac_core.result module<a class="headerlink" href="#ac-core-result-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.result.fetch_result">
-<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">fetch_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#fetch_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.result.fetch_result" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">fetch_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#fetch_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse submit result by <em>http_util</em> with <em>problem_url</em>.</p>
 <p>You need logged in before using this method. This function will find your last submission for the problem.</p>
 <dl class="field-list simple">
@@ -455,8 +455,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.result.fetch_result_by_url">
-<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">fetch_result_by_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#fetch_result_by_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.result.fetch_result_by_url" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">fetch_result_by_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#fetch_result_by_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse submit result by <em>http_util</em> with submission <em>json_url</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -473,7 +473,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">fetch_result_by_url</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">(),</span><span class="s1">&#39;https://atcoder.jp/contests/abc101/submissions/me/status/json?sids[]=5371077&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>the structured data returned by <a class="reference internal" href="#ac_core.result.fetch_result" title="ac_core.result.fetch_result"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_result()</span></code></a> has the submission json url</p>
+<p>the structured data returned by <a class="reference internal" href="../ac_core.html#ac_core.result.fetch_result" title="ac_core.result.fetch_result"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_result()</span></code></a> has the submission json url</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">ac_core.auth</span> <span class="kn">import</span> <span class="n">fetch_login</span><span class="p">,</span> <span class="n">is_logged_in</span>
 <span class="kn">from</span> <span class="nn">ac_core.result</span> <span class="kn">import</span> <span class="n">fetch_result</span><span class="p">,</span> <span class="n">fetch_result_by_url</span>
@@ -488,8 +488,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.result.parse_result">
-<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">parse_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#parse_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.result.parse_result" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.result.</span></span><span class="sig-name descname"><span class="pre">parse_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.html#ac_core.result.SubmissionResult" title="ac_core.result.SubmissionResult"><span class="pre">SubmissionResult</span></a></span></span><a class="reference internal" href="../_modules/ac_core/result.html#parse_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>parse submit result get from json result
 :param resp: the json result get from <code class="docutils literal notranslate"><span class="pre">https://atcoder.jp/contests/{contest_id}/submissions/me/status/json?sids[]={submision</span> <span class="pre">id}</span></code></p>
 <dl class="field-list simple">
@@ -507,18 +507,18 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.submit">
-<span id="ac-core-submit-module"></span><h2>ac_core.submit module<a class="headerlink" href="#module-ac_core.submit" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-submit-module">
+<h2>ac_core.submit module<a class="headerlink" href="#ac-core-submit-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.submit.fetch_submit">
-<span class="sig-prename descclassname"><span class="pre">ac_core.submit.</span></span><span class="sig-name descname"><span class="pre">fetch_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpRespInterface" title="ac_core.interfaces.HttpUtil.HttpRespInterface"><span class="pre">HttpRespInterface</span></a></span></span><a class="reference internal" href="../_modules/ac_core/submit.html#fetch_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.submit.fetch_submit" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.submit.</span></span><span class="sig-name descname"><span class="pre">fetch_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_util</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpUtilInterface" title="ac_core.interfaces.HttpUtil.HttpUtilInterface"><span class="pre">HttpUtilInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../ac_core.interfaces.html#ac_core.interfaces.HttpUtil.HttpRespInterface" title="ac_core.interfaces.HttpUtil.HttpRespInterface"><span class="pre">HttpRespInterface</span></a></span></span><a class="reference internal" href="../_modules/ac_core/submit.html#fetch_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Submit code. You need logged in before using this method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>http_util</strong> – e.g. requests.session()</p></li>
 <li><p><strong>problem_url</strong> – e.g. <code class="docutils literal notranslate"><span class="pre">'https://atcoder.jp/contests/abc285/tasks/abc285_a'</span></code></p></li>
-<li><p><strong>lang_id</strong> – e.g. <code class="docutils literal notranslate"><span class="pre">'4003'</span></code> for <code class="docutils literal notranslate"><span class="pre">C++</span> <span class="pre">(GCC</span> <span class="pre">9.2.1)</span></code>, use <a class="reference internal" href="#ac_core.language.fetch_language" title="ac_core.language.fetch_language"><code class="xref py py-func docutils literal notranslate"><span class="pre">ac_core.language.fetch_language()</span></code></a> to get language list</p></li>
+<li><p><strong>lang_id</strong> – e.g. <code class="docutils literal notranslate"><span class="pre">'4003'</span></code> for <code class="docutils literal notranslate"><span class="pre">C++</span> <span class="pre">(GCC</span> <span class="pre">9.2.1)</span></code>, use <a class="reference internal" href="../ac_core.html#ac_core.language.fetch_language" title="ac_core.language.fetch_language"><code class="xref py py-func docutils literal notranslate"><span class="pre">ac_core.language.fetch_language()</span></code></a> to get language list</p></li>
 <li><p><strong>source_code</strong> – the code text</p></li>
 </ul>
 </dd>
@@ -538,11 +538,11 @@
 </dd></dl>
 
 </section>
-<section id="module-ac_core.url">
-<span id="ac-core-url-module"></span><h2>ac_core.url module<a class="headerlink" href="#module-ac_core.url" title="Permalink to this heading">#</a></h2>
+<section id="ac-core-url-module">
+<h2>ac_core.url module<a class="headerlink" href="#ac-core-url-module" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="ac_core.url.url_2_contest_id">
-<span class="sig-prename descclassname"><span class="pre">ac_core.url.</span></span><span class="sig-name descname"><span class="pre">url_2_contest_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/ac_core/url.html#url_2_contest_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ac_core.url.url_2_contest_id" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ac_core.url.</span></span><span class="sig-name descname"><span class="pre">url_2_contest_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/ac_core/url.html#url_2_contest_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>url</strong> – example: <code class="docutils literal notranslate"><span class="pre">https://atcoder.jp/contests/agc030</span></code></p>
@@ -617,41 +617,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
-<li><a class="reference internal" href="#module-ac_core.auth">ac_core.auth module</a><ul>
-<li><a class="reference internal" href="#ac_core.auth.fetch_login"><code class="docutils literal notranslate"><span class="pre">fetch_login()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.auth.is_logged_in"><code class="docutils literal notranslate"><span class="pre">is_logged_in()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.contest">ac_core.contest module</a><ul>
-<li><a class="reference internal" href="#ac_core.contest.fetch_standing"><code class="docutils literal notranslate"><span class="pre">fetch_standing()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.contest.fetch_tasks"><code class="docutils literal notranslate"><span class="pre">fetch_tasks()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.contest.fetch_tasks_meta"><code class="docutils literal notranslate"><span class="pre">fetch_tasks_meta()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.contest.parse_standing"><code class="docutils literal notranslate"><span class="pre">parse_standing()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.contest.parse_tasks"><code class="docutils literal notranslate"><span class="pre">parse_tasks()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.language">ac_core.language module</a><ul>
-<li><a class="reference internal" href="#ac_core.language.fetch_language"><code class="docutils literal notranslate"><span class="pre">fetch_language()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.problem">ac_core.problem module</a><ul>
-<li><a class="reference internal" href="#ac_core.problem.parse_task"><code class="docutils literal notranslate"><span class="pre">parse_task()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.result">ac_core.result module</a><ul>
-<li><a class="reference internal" href="#ac_core.result.fetch_result"><code class="docutils literal notranslate"><span class="pre">fetch_result()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.result.fetch_result_by_url"><code class="docutils literal notranslate"><span class="pre">fetch_result_by_url()</span></code></a></li>
-<li><a class="reference internal" href="#ac_core.result.parse_result"><code class="docutils literal notranslate"><span class="pre">parse_result()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.submit">ac_core.submit module</a><ul>
-<li><a class="reference internal" href="#ac_core.submit.fetch_submit"><code class="docutils literal notranslate"><span class="pre">fetch_submit()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-ac_core.url">ac_core.url module</a><ul>
-<li><a class="reference internal" href="#ac_core.url.url_2_contest_id"><code class="docutils literal notranslate"><span class="pre">url_2_contest_id()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#ac-core-auth-module">ac_core.auth module</a></li>
+<li><a class="reference internal" href="#ac-core-contest-module">ac_core.contest module</a></li>
+<li><a class="reference internal" href="#ac-core-language-module">ac_core.language module</a></li>
+<li><a class="reference internal" href="#ac-core-problem-module">ac_core.problem module</a></li>
+<li><a class="reference internal" href="#ac-core-result-module">ac_core.result module</a></li>
+<li><a class="reference internal" href="#ac-core-submit-module">ac_core.submit module</a></li>
+<li><a class="reference internal" href="#ac-core-url-module">ac_core.url module</a></li>
 </ul>
 </li>
 </ul>
@@ -664,9 +636,6 @@
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
