@@ -13,7 +13,7 @@
 
 ## About
 
-Some Atcoder core api with `python >= 3.7`.
+Some Atcoder core api with `python >= 3.8`.
 
 Based on this library, you can easily build command-line programs and intermediate services.
 

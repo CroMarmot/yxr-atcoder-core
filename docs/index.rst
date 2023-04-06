@@ -6,7 +6,7 @@
 Welcome to yxr-atcoder-core's documentation!
 ============================================
 
-Some Atcoder core api with python3.7+
+Some Atcoder core api with python3.8+
 
 
 .. toctree::
