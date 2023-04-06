@@ -23,7 +23,7 @@ class SubmissionResult:
     TLE: str = 'Time Limit Exceeded'
 
   id: str = ''
-  url: str = '' # json url for refetch
+  url: str = ''  # json url for refetch
   score: int = 500
   status: Status = Status.INIT
   time_cost_ms: int = 0
@@ -132,7 +132,7 @@ def _parse_json_url(html: str):
   # <a href='/contests/abc101/submissions/5371227'>Detail</a>
   r = re.search('<td class="text-center">.*?"/contests/(.*?)/submissions/([0-9]*?)\">Detail</a>', str(soup),
                 re.DOTALL | re.MULTILINE)
-  assert r is not None # no submission
+  assert r is not None  # no submission
   return os.path.join(_SITE_URL, f"contests/{r.group(1)}/submissions/me/status/json?sids[]={r.group(2)}")
 
 

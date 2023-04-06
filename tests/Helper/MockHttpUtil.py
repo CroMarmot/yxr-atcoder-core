@@ -26,7 +26,7 @@ class MockResp:
 
 class MockAsyncHttpUtil:
 
-  def get(self, url: str) -> str:
+  def get(self, url: str) -> MockResp:
     if url in url2file:
       filename = url2file[url]
       filepath = os.path.join(test_dir, 'TestFiles', filename)

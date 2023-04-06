@@ -16,8 +16,8 @@ class SubmitResult:
 
 
 def fetch_fields(html: str) -> Dict[str, str]:
-  """
-    parse necessary fields for requests header such as 'csrf_token'
+  """parse necessary fields for requests header such as 'csrf_token'
+
     :param html: the html source from ``https://atcoder.jp/contests/{contest_id}/submit``
   """
   soup = BeautifulSoup(html, HTML_PARSER)
@@ -31,7 +31,8 @@ def problem_url_2_submit_url(problem_url: str) -> str:
     :returns: problem_url e.g. ``'https://atcoder.jp/contests/abc285/submit'``
 
     :examples:
-    .. code-block:: 
+
+    .. code-block::
 
         from ac_core.submit import problem_url_2_submit_url
         print(problem_url_2_submit_url('https://atcoder.jp/contests/abc285/tasks/abc285_a'))
@@ -43,14 +44,15 @@ def problem_url_2_submit_url(problem_url: str) -> str:
 def fetch_submit(http_util: HttpUtilInterface, problem_url: str, lang_id: str, source_code: str) -> HttpRespInterface:
   """Submit code. You need logged in before using this method.
 
-    :param http_util: e.g. requests.session() 
+    :param http_util: e.g. requests.session()
     :param problem_url: e.g. ``'https://atcoder.jp/contests/abc285/tasks/abc285_a'``
     :param lang_id: e.g. ``'4003'`` for ``C++ (GCC 9.2.1)``, use :py:func:`ac_core.language.fetch_language()` to get language list
     :param source_code: the code text
-    
+
 
     :examples:
-    .. code-block:: 
+
+    .. code-block::
 
         import requests
         from ac_core.auth import fetch_login, is_logged_in

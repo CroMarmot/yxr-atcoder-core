@@ -16,6 +16,13 @@ dependencies = [
   "requests >= 2",
   "beautifulsoup4 >= 4",
   "lxml >= 4",
+  "types-beautifulsoup4",
+  "toml",
+  "yapf >= 0.32",
+  "dataclasses-json",
+  "sphinx >= 5",
+  "furo",
+  "myst-parser",
 ]
 readme = "README.md"
 requires-python = ">=3.7"
@@ -31,10 +38,11 @@ license = { file="LICENSE" }
 "Bug Tracker" = "https://github.com/CroMarmot/yxr-atcoder-core/issues"
 
 [project.optional-dependencies]
-tests = [
+test = [
   'build',
   'coverage >= 6',
   'pytest >= 7',
+  'mypy',
 ]
 
 [tool.setuptools.packages.find]
@@ -57,4 +65,3 @@ indent_width = 2
 
 [tool.mypy]
 strict_optional = false
-

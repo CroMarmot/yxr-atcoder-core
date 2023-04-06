@@ -15,7 +15,7 @@ from .utils.html_parse_helper import parse_start_end, parse_url
 
 
 @dataclass
-class ParserProblemResult():
+class ParserProblemResult:
   id: str
   url: str
   name: str
@@ -24,7 +24,7 @@ class ParserProblemResult():
 
 
 @dataclass
-class ParserResult():
+class ParserResult:
   start_time: int
   end_time: int
   name: str
@@ -38,8 +38,8 @@ class FetchProblemResult:
   url: str
   name: str
   score: int
-  time_limit_msec: int  # ms
-  memory_limit_kb: int  # mb
+  time_limit_msec: int
+  memory_limit_kb: int
   tests: List[ProblemTestCase]
 
 
@@ -58,8 +58,9 @@ def parse_tasks(html: str) -> ParserResult:
     :param html: the html source get from ``https://atcoder.jp/contests/{contests_id}/tasks``
 
     :examples:
+
     .. code-block::
-    
+
         import requests
         from ac_core.contest import parse_tasks
 
@@ -121,7 +122,7 @@ def fetch_tasks(http_util: HttpUtilInterface, contest_id: str) -> FetchResult:
 
     :examples:
 
-    .. code-block:: 
+    .. code-block::
 
         import requests
         from ac_core.contest import fetch_tasks
@@ -168,8 +169,9 @@ def fetch_tasks_meta(http_util: HttpUtilInterface, contest_id: str) -> ParserRes
     :param contest_id: the number in contest url, e.g. ``abc123``
 
     :examples:
+
     .. code-block::
-    
+
         import requests
         from ac_core.contest import fetch_tasks_meta
         print(fetch_tasks_meta(requests.session(), 'abc260'))
@@ -253,8 +255,9 @@ def parse_standing(html: str) -> StandingStruct:
   """parse json standings to struct
 
     :param html: the html data get from ``https://atcoder.jp/contests/{contest_id}/standings/json``
-    
+
     :examples:
+
     .. code-block::
 
         import requests
@@ -274,6 +277,7 @@ def fetch_standing(http_util: HttpUtilInterface, contest_id: str) -> StandingStr
     :param contest_id: the number in contest url, e.g. ``abc123``
 
     :examples:
+
     .. code-block::
 
         import requests

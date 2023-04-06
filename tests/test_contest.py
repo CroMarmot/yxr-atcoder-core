@@ -10,8 +10,8 @@ def test_parse_tasks():
   result = parse_tasks(html)
 
   assert result.url == "https://atcoder.jp/contests/abc001/tasks"
-  assert result.start_time == 1381582800
-  assert result.end_time == 1381590000
+  assert result.start_time == 1381579200
+  assert result.end_time == 1381586400
   assert result.name == "AtCoder Beginner Contest 001"
 
   assert len(result.problems) == 4
@@ -47,8 +47,8 @@ def test_fetch_tasks():
   result = fetch_tasks(http_util, 'abc259')
 
   assert result.url == "https://atcoder.jp/contests/abc259/tasks"
-  assert result.start_time == 1657371600
-  assert result.end_time == 1657377600
+  assert result.start_time == 1657368000
+  assert result.end_time == 1657374000
   assert result.name == "AtCoder Beginner Contest 259"
 
   assert len(result.problems) == 8

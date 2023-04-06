@@ -19,8 +19,9 @@ def fetch_language(http_util: HttpUtilInterface) -> List[LanguageKV]:
     :param http_util: e.g. ``requests.session()``
 
     :examples:
+
     .. code-block::
-    
+
         import requests
         from ac_core.auth import fetch_login, is_logged_in
         from ac_core.language import fetch_language
