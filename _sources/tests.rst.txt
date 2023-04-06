@@ -1,0 +1,61 @@
+tests package
+=============
+
+Submodules
+----------
+
+tests.constant module
+---------------------
+
+.. automodule:: tests.constant
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_contest module
+--------------------------
+
+.. automodule:: tests.test_contest
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_language module
+---------------------------
+
+.. automodule:: tests.test_language
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_problem module
+--------------------------
+
+.. automodule:: tests.test_problem
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_result module
+-------------------------
+
+.. automodule:: tests.test_result
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_url module
+----------------------
+
+.. automodule:: tests.test_url
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

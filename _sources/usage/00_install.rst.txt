@@ -12,7 +12,7 @@ with github
     pip3 install -e . --config-settings editable_mode=compat
 
 Future(NOT SUPPORT YET!WIP)
----------------------------
+------
 
 .. code-block::
 

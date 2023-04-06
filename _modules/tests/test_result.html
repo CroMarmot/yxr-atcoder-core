@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>ac_core.url - yxr-atcoder-core 0.0.2 documentation</title>
+        <title>tests.test_result - yxr-atcoder-core 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -214,41 +214,56 @@
           </label>
         </div>
         <article role="main">
-          <h1>Source code for ac_core.url</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+          <h1>Source code for tests.test_result</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ac_core.result</span> <span class="kn">import</span> <span class="n">SubmissionResult</span><span class="p">,</span> <span class="n">parse_result</span><span class="p">,</span> <span class="n">_problem_url_to_sub_url</span><span class="p">,</span> <span class="n">_parse_json_url</span>
+<span class="kn">from</span> <span class="nn">tests.constant</span> <span class="kn">import</span> <span class="n">test_dir</span>
 
-<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">remove_suffix</span>
+
+<div class="viewcode-block" id="test_parse_result_0"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_result_0">[docs]</a><span class="k">def</span> <span class="nf">test_parse_result_0</span><span class="p">():</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc275_f_result.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">500</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;36185704&quot;</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">AC</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">84</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">74320</span></div>
+
+<div class="viewcode-block" id="test_parse_result_1"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_result_1">[docs]</a><span class="k">def</span> <span class="nf">test_parse_result_1</span><span class="p">():</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc284_submissions_38109148.1.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;38109148&quot;</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">RUNNING</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">0</span> 
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">msg_txt</span> <span class="o">==</span> <span class="s1">&#39;1/20&#39;</span>
+
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc284_submissions_38109148.2.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parse_result</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">300</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;38109148&quot;</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">SubmissionResult</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">AC</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">time_cost_ms</span> <span class="o">==</span> <span class="mi">7</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">mem_cost_kb</span> <span class="o">==</span> <span class="mi">3776</span>
+  <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">msg_txt</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span></div>
 
 
-<div class="viewcode-block" id="url_2_contest_id"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.url.url_2_contest_id">[docs]</a><span class="k">def</span> <span class="nf">url_2_contest_id</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  :param url: example: ``https://atcoder.jp/contests/agc030``</span>
-<span class="sd">  :returns: contest id. e.g. &#39;agc030&#39;</span>
+<div class="viewcode-block" id="test_problem_url_to_submission_url"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_problem_url_to_submission_url">[docs]</a><span class="k">def</span> <span class="nf">test_problem_url_to_submission_url</span><span class="p">():</span>
+  <span class="k">assert</span> <span class="n">_problem_url_to_sub_url</span><span class="p">(</span><span class="s2">&quot;https://atcoder.jp/contests/abc275/tasks/abc275_f&quot;</span>
+                                 <span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;https://atcoder.jp/contests/abc275/submissions/me?f.Task=abc275_f&quot;</span></div>
 
-<span class="sd">  Examples:</span>
 
-<span class="sd">  .. code-block:: </span>
-
-<span class="sd">      from ac_core.url import url_2_contest_id</span>
-<span class="sd">      print(url_2_contest_id(&#39;https://atcoder.jp/contests/abc260/tasks/abc260_b&#39;))</span>
-<span class="sd">  &quot;&quot;&quot;</span>
-
-  <span class="n">result</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">hostname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-  <span class="c1"># example: https://kupc2014.contest.atcoder.jp/tasks/kupc2014_d</span>
-  <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">hostname</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.contest.atcoder.jp&#39;</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">remove_suffix</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="s1">&#39;.contest.atcoder.jp&#39;</span><span class="p">)</span>
-
-  <span class="c1"># example: https://atcoder.jp/contests/agc030</span>
-  <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">hostname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;atcoder.jp&#39;</span><span class="p">,</span> <span class="s1">&#39;beta.atcoder.jp&#39;</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/contests/([\w\-_]+)/?.*&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-      <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-  <span class="k">assert</span> <span class="kc">False</span></div>
-
+<div class="viewcode-block" id="test_parse_json_url"><a class="viewcode-back" href="../../tests.html#tests.test_result.test_parse_json_url">[docs]</a><span class="k">def</span> <span class="nf">test_parse_json_url</span><span class="p">():</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_dir</span><span class="p">,</span> <span class="s1">&#39;./TestFiles/abc275_f_submission.html&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="k">assert</span> <span class="n">_parse_json_url</span><span class="p">(</span><span class="n">html</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;https://atcoder.jp/contests/abc275/submissions/me/status/json?sids[]=36185704&quot;</span></div>
 </pre></div>
         </article>
       </div>
