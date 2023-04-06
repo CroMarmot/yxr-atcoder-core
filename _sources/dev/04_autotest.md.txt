@@ -1,7 +1,7 @@
 # Auto Test
 
 ```bash
-pytest
+pytest -v
 ```
 
 ## Coverage test
@@ -19,7 +19,7 @@ coverage html
 ## Static type test
 
 ```bash
-mypy ac_core
+mypy --ignore-missing-imports ac_core tests
 ```
 
 ## Static gen
