@@ -170,15 +170,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">ac_core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../ac_core.html">ac_core package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.interfaces.html">ac_core.interfaces package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.modal.html">ac_core.modal package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.utils.html">ac_core.utils package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../setup.html">setup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tests.html">tests package</a></li>
 </ul>
 </li>
 </ul>
@@ -233,8 +231,8 @@
 
 
 <div class="viewcode-block" id="fetch_fields"><a class="viewcode-back" href="../../ac_core.html#ac_core.submit.fetch_fields">[docs]</a><span class="k">def</span> <span class="nf">fetch_fields</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    parse necessary fields for requests header such as &#39;csrf_token&#39;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;parse necessary fields for requests header such as &#39;csrf_token&#39;</span>
+
 <span class="sd">    :param html: the html source from ``https://atcoder.jp/contests/{contest_id}/submit``</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">HTML_PARSER</span><span class="p">)</span>
@@ -248,7 +246,8 @@
 <span class="sd">    :returns: problem_url e.g. ``&#39;https://atcoder.jp/contests/abc285/submit&#39;``</span>
 
 <span class="sd">    :examples:</span>
-<span class="sd">    .. code-block:: </span>
+
+<span class="sd">    .. code-block::</span>
 
 <span class="sd">        from ac_core.submit import problem_url_2_submit_url</span>
 <span class="sd">        print(problem_url_2_submit_url(&#39;https://atcoder.jp/contests/abc285/tasks/abc285_a&#39;))</span>
@@ -260,14 +259,15 @@
 <div class="viewcode-block" id="fetch_submit"><a class="viewcode-back" href="../../usage/02_examples.html#ac_core.submit.fetch_submit">[docs]</a><span class="k">def</span> <span class="nf">fetch_submit</span><span class="p">(</span><span class="n">http_util</span><span class="p">:</span> <span class="n">HttpUtilInterface</span><span class="p">,</span> <span class="n">problem_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lang_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">source_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpRespInterface</span><span class="p">:</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;Submit code. You need logged in before using this method.</span>
 
-<span class="sd">    :param http_util: e.g. requests.session() </span>
+<span class="sd">    :param http_util: e.g. requests.session()</span>
 <span class="sd">    :param problem_url: e.g. ``&#39;https://atcoder.jp/contests/abc285/tasks/abc285_a&#39;``</span>
 <span class="sd">    :param lang_id: e.g. ``&#39;4003&#39;`` for ``C++ (GCC 9.2.1)``, use :py:func:`ac_core.language.fetch_language()` to get language list</span>
 <span class="sd">    :param source_code: the code text</span>
-<span class="sd">    </span>
+
 
 <span class="sd">    :examples:</span>
-<span class="sd">    .. code-block:: </span>
+
+<span class="sd">    .. code-block::</span>
 
 <span class="sd">        import requests</span>
 <span class="sd">        from ac_core.auth import fetch_login, is_logged_in</span>

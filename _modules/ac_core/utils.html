@@ -170,15 +170,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev/05_rst_examples.html">rst Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">yxr-atcoder-core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">ac_core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../ac_core.html">ac_core package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.interfaces.html">ac_core.interfaces package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.modal.html">ac_core.modal package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ac_core.utils.html">ac_core.utils package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../setup.html">setup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tests.html">tests package</a></li>
 </ul>
 </li>
 </ul>
@@ -242,7 +240,7 @@
 
 <div class="viewcode-block" id="get_direct_children_text"><a class="viewcode-back" href="../../ac_core.utils.html#ac_core.utils.get_direct_children_text">[docs]</a><span class="k">def</span> <span class="nf">get_direct_children_text</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">bs4</span><span class="o">.</span><span class="n">Tag</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;get_direct_children_text collects the text which are direct children of the given tag.</span>
-<span class="sd">    </span>
+
 <span class="sd">    For example, this returns &quot;A - Hello world &quot; for a tag ``&lt;h2&gt;A - Hello world &lt;a href=&quot;...&quot;&gt;Editorial&lt;/a&gt;&lt;/h2&gt;``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -251,7 +249,7 @@
   <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tag</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">bs4</span><span class="o">.</span><span class="n">NavigableString</span><span class="p">):</span>
       <span class="c1"># print(&quot;check mypy child.string or child.strings&quot;)</span>
-      <span class="n">text</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">string</span>
+      <span class="n">text</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">string</span>  <span class="c1"># type: ignore # TODO</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">bs4</span><span class="o">.</span><span class="n">Tag</span><span class="p">)</span> <span class="ow">and</span> <span class="n">child</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;br&#39;</span><span class="p">:</span>
       <span class="n">text</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
     <span class="k">else</span><span class="p">:</span>
