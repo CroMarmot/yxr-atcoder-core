@@ -2,8 +2,9 @@
 
 [![linting: yapf](https://img.shields.io/badge/linting-yapf-green)](https://github.com/google/yapf)
 [![pages-build-deployment](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/pages/pages-build-deployment)
+[![Unit test](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/unit-test.yml/badge.svg)](https://github.com/CroMarmot/yxr-atcoder-core/actions/workflows/unit-test.yml)
 
-![python3.7+](https://shields.io/badge/python-3.7+-green?logo=python)
+![python3.8+](https://shields.io/badge/python-3.8+-green?logo=python)
 ![requests](https://shields.io/badge/requests-2-green)
 ![BeautifulSoup4](https://shields.io/badge/BeautifulSoup-4-green)
 ![lxml](https://shields.io/badge/lxml-4-green)

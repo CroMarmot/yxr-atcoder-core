@@ -1,4 +1,3 @@
-from py import test
 from ac_core.problem import parse_task
 from tests.constant import test_dir
 import os
@@ -14,8 +13,8 @@ def test_parse_task():
   assert result.name == "AtCoder社の冬"
   assert result.memory_limit_kb == 64000
   assert result.time_limit_msec == 2000
-  assert result.contest_start == 1386853200
-  assert result.contest_end == 1386860400
+  assert result.contest_start == 1386849600
+  assert result.contest_end == 1386856800
   assert result.contest_name == "AtCoder Beginner Contest 003"
   assert result.contest_url == "https://atcoder.jp/contests/abc003"
 
@@ -30,6 +29,7 @@ def test_parse_task():
   assert tests[3].input == "30 30\n24 22\n145 132\n"
   assert tests[3].output == "976668549\n"
 
+
 def test_parse_task2():
   with open(os.path.join(test_dir, './TestFiles/abc276_e.html')) as f:
     html = f.read()
@@ -40,8 +40,8 @@ def test_parse_task2():
   assert result.name == "Round Trip"
   assert result.memory_limit_kb == 1024000
   assert result.time_limit_msec == 2000
-  assert result.contest_start == 1667653200
-  assert result.contest_end == 1667659200
+  assert result.contest_start == 1667649600
+  assert result.contest_end == 1667655600
   assert result.contest_name == "AtCoder Beginner Contest 276"
   assert result.contest_url == "https://atcoder.jp/contests/abc276"
 

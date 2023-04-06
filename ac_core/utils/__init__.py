@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import time
 
 import bs4
@@ -18,14 +18,13 @@ def remove_suffix(s: str, suffix: str) -> str:
 
 def time_str_2_timestamp(s: str) -> int:
   assert (s.endswith('+0900'))
-  s = s[:-5]
-  TIME_FORMART = "%Y-%m-%d %H:%M:%S"  # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
-  return int(time.mktime(datetime.datetime.strptime(s, TIME_FORMART).timetuple()))
+  TIME_FORMART = "%Y-%m-%d %H:%M:%S%z"  # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+  return int(datetime.strptime(s, TIME_FORMART).timestamp())
 
 
 def get_direct_children_text(tag: bs4.Tag) -> str:
   """get_direct_children_text collects the text which are direct children of the given tag.
-    
+
     For example, this returns "A - Hello world " for a tag ``<h2>A - Hello world <a href="...">Editorial</a></h2>``.
     """
 
@@ -34,7 +33,7 @@ def get_direct_children_text(tag: bs4.Tag) -> str:
   for child in tag.children:
     if isinstance(child, bs4.NavigableString):
       # print("check mypy child.string or child.strings")
-      text += child.string
+      text += child.string  # type: ignore # TODO
     elif isinstance(child, bs4.Tag) and child.name == 'br':
       text += '\n'
     else:

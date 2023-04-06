@@ -1,27 +1,31 @@
-name: "Doc: sphinx to gh-pages"
+name: "Unit test"
 on:
   push:
     branches:
     - master
+    - dev
 
 jobs:
-  sphinx_2_gp_job:
+  unit_test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
     - uses: actions/checkout@v3
     - name: Setup Python
       uses: actions/setup-python@v4.5.0
       with:
         # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
-        python-version: "3.10"
+        python-version: ${{ matrix.python-version }}
+
     - name: Install Dependencies
-      run: pip install .
-    - name: build doc
       run: |
-        sphinx-apidoc -f -o docs/ ac_core/
-        cd docs && make html
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_build/html/
+        pip install .
+        pip install .[test]
+    - name: Type test
+      run: |
+        mypy --ignore-missing-imports ac_core
+    - name: Unit test
+      run: |
+        pytest -v

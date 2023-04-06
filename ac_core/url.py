@@ -31,4 +31,3 @@ def url_2_contest_id(url: str) -> str:
     if m:
       return m.group(1)
   assert False
-
