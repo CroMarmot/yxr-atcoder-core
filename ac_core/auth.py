@@ -72,7 +72,12 @@ def fetch_login(http_util: HttpUtilInterface, username: str, password: str) -> b
         'username': username,
         'password': password,
     }
-    http_util.post(url='https://atcoder.jp/login', data=post_data)
+    ret = http_util.post(url='https://atcoder.jp/login', data=post_data)
+    if ret.status_code == 403:
+      # TODO fix???
+      # 403 REVEL_CSRF: tokens mismatch. 似乎因为历史cookie导致？更新了也不能成功？
+      logger.error('Atcoder 403(may need clear cookies and relogin):')
+      logger.error(ret.text)
   except Exception as e:
     logger.exception(e)
     return False
