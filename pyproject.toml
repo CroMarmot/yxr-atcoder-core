@@ -1,14 +1,11 @@
 [build-system]
-requires = [
-  "setuptools",
-  "wheel"
-]
-build-backend = "setuptools.build_meta"
+requires = [ "hatchling" ]
+build-backend = "hatchling.build"
 
 [project]
 name = "yxr-atcoder-core"
 description = "Simple Atcoder core api"
-version = "0.0.2"
+version = "0.0.3.3"
 authors = [
   { name="YeXiaoRain", email="yexiaorain@gmail.com" }
 ]
@@ -45,11 +42,15 @@ test = [
   'mypy',
 ]
 
-[tool.setuptools.packages.find]
-where = ["."] # default "."
-include = ["ac_core"] # ["*"] by default
-exclude = ["TODO.md", "tests", "docs"] # empty by default
-namespaces = true # true by default
+[tool.hatch.build]
+ignore-vcs = true
+include = [
+  "ac_core",
+]
+exclude = [
+  "tests",
+  "docs",
+]
 
 [tool.pytest.ini_options]
 minversion = "6.0"

@@ -5,8 +5,8 @@ import os
 import re
 
 from bs4 import BeautifulSoup
-from .constant import _SITE_URL
-from .interfaces.HttpUtil import HttpUtilInterface
+from ac_core.constant import _SITE_URL
+from ac_core.interfaces.HttpUtil import HttpUtilInterface
 
 
 @dataclass
