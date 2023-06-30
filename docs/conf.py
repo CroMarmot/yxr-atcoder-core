@@ -14,7 +14,8 @@ sys.path.insert(0, os.path.abspath(".."))
 project = 'yxr-atcoder-core'
 copyright = '2023, Cro-Marmot'
 author = 'Cro-Marmot'
-release = '0.0.2'
+from ac_core import __version__
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
