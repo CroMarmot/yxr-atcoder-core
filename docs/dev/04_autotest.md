@@ -1,10 +1,7 @@
 # Auto Test
 
 ```bash
-pytest -v tests/unit
-# config tests/e2e/cfg.py first (Read tests/e2e/README.md)
-pytest -v tests/e2e
-pytest -v tests/e2e/test_auth.py::test_auth
+pytest -v
 ```
 
 ## Coverage test

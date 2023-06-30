@@ -3,8 +3,8 @@ from typing import List
 
 from bs4 import BeautifulSoup, Tag
 
-from ac_core.constant import _SITE_URL
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface
 
 
 @dataclass

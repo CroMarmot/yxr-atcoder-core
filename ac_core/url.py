@@ -1,7 +1,7 @@
 import re
 
 from urllib.parse import urlparse
-from ac_core.utils import remove_suffix
+from .utils import remove_suffix
 
 
 def url_2_contest_id(url: str) -> str:

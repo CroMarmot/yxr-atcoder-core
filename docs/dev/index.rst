@@ -1,7 +1,7 @@
 Developer
 ===========
 
-Menu
+Menu 
 ------
 
 .. toctree::
@@ -13,7 +13,6 @@ Menu
     03_lint
     04_autotest
     05_rst_examples
-    06_publish
 
 Lib in use
 ----------

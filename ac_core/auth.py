@@ -3,9 +3,9 @@ from typing import cast
 from bs4 import BeautifulSoup
 import bs4
 
-from ac_core.constant import _SITE_URL
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
-from ac_core.utils import HTML_PARSER
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface
+from .utils import HTML_PARSER
 
 logger = getLogger(__name__)
 
@@ -72,12 +72,7 @@ def fetch_login(http_util: HttpUtilInterface, username: str, password: str) -> b
         'username': username,
         'password': password,
     }
-    ret = http_util.post(url='https://atcoder.jp/login', data=post_data)
-    if ret.status_code == 403:
-      # TODO fix???
-      # 403 REVEL_CSRF: tokens mismatch. 似乎因为历史cookie导致？更新了也不能成功？
-      logger.error('Atcoder 403(may need clear cookies and relogin):')
-      logger.error(ret.text)
+    http_util.post(url='https://atcoder.jp/login', data=post_data)
   except Exception as e:
     logger.exception(e)
     return False
