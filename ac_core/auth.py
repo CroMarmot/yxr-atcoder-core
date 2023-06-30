@@ -3,9 +3,9 @@ from typing import cast
 from bs4 import BeautifulSoup
 import bs4
 
-from .constant import _SITE_URL
-from .interfaces.HttpUtil import HttpUtilInterface
-from .utils import HTML_PARSER
+from ac_core.constant import _SITE_URL
+from ac_core.interfaces.HttpUtil import HttpUtilInterface
+from ac_core.utils import HTML_PARSER
 
 logger = getLogger(__name__)
 

@@ -5,10 +5,10 @@ from typing import Dict, Iterator, List, Optional, Tuple
 
 from bs4 import BeautifulSoup
 import bs4
-from .constant import _SITE_URL
-from .modal.problem_test_case import ProblemTestCase
-from .utils import HTML_PARSER, get_direct_children_text, remove_prefix, remove_suffix
-from .utils.html_parse_helper import parse_start_end, parse_url
+from ac_core.constant import _SITE_URL
+from ac_core.modal.problem_test_case import ProblemTestCase
+from ac_core.utils import HTML_PARSER, get_direct_children_text, remove_prefix, remove_suffix
+from ac_core.utils.html_parse_helper import parse_start_end, parse_url
 
 logger = getLogger(__name__)
 
