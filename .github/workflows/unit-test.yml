@@ -28,4 +28,4 @@ jobs:
         mypy --ignore-missing-imports ac_core
     - name: Unit test
       run: |
-        pytest -v tests/unit
+        pytest -v

@@ -6,12 +6,12 @@ from typing import Any, Dict, List, cast
 from bs4 import BeautifulSoup
 import bs4
 
-from ac_core.modal.problem_test_case import ProblemTestCase
-from ac_core.interfaces.HttpUtil import HttpUtilInterface
-from ac_core.problem import parse_task
-from ac_core.utils import HTML_PARSER, remove_suffix
-from ac_core.constant import _SITE_URL
-from ac_core.utils.html_parse_helper import parse_start_end, parse_url
+from .modal.problem_test_case import ProblemTestCase
+from .interfaces.HttpUtil import HttpUtilInterface
+from .problem import parse_task
+from .utils import HTML_PARSER, remove_suffix
+from .constant import _SITE_URL
+from .utils.html_parse_helper import parse_start_end, parse_url
 
 
 @dataclass

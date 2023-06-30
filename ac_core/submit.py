@@ -4,10 +4,10 @@ from typing import Dict, cast
 from bs4 import BeautifulSoup
 import bs4
 
-from ac_core.constant import _SITE_URL
-from ac_core.interfaces.HttpUtil import HttpUtilInterface, HttpRespInterface
-from ac_core.url import url_2_contest_id
-from ac_core.utils import HTML_PARSER
+from .constant import _SITE_URL
+from .interfaces.HttpUtil import HttpUtilInterface, HttpRespInterface
+from .url import url_2_contest_id
+from .utils import HTML_PARSER
 
 
 @dataclass
