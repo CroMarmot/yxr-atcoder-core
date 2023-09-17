@@ -16,6 +16,7 @@ def remove_suffix(s: str, suffix: str) -> str:
   return s[:-len(suffix)]
 
 
+# https://www.unixtimestamp.com/
 def time_str_2_timestamp(s: str) -> int:
   assert (s.endswith('+0900'))
   TIME_FORMART = "%Y-%m-%d %H:%M:%S%z"  # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes

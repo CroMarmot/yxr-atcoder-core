@@ -13,12 +13,8 @@ dependencies = [
   "beautifulsoup4 >= 4",
   "lxml >= 4",
   "types-beautifulsoup4",
-  "toml",
-  "yapf >= 0.32",
   "dataclasses-json",
-  "sphinx >= 5",
-  "furo",
-  "myst-parser",
+  "toml",
 ]
 readme = "README.md"
 requires-python = ">=3.8"
@@ -35,8 +31,17 @@ dynamic = ["version"]
 "Bug Tracker" = "https://github.com/CroMarmot/yxr-atcoder-core/issues"
 
 [project.optional-dependencies]
-test = [
+dev = [ 
+  'yxr-atcoder-core[doc,test]',
   'build',
+  "yapf >= 0.32",
+]
+doc = [
+  "sphinx >= 5",
+  "furo",
+  "myst-parser",
+]
+test = [
   'coverage >= 6',
   'pytest >= 7',
   'mypy',

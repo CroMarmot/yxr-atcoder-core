@@ -1,5 +1,7 @@
 import os
+
 from ac_core.contest import fetch_tasks, parse_tasks
+
 from tests.Helper.MockHttpUtil import MockAsyncHttpUtil
 from tests.constant import test_dir
 
@@ -68,3 +70,18 @@ def test_fetch_tasks():
   assert problems[7].memory_limit_kb == 1024000
   assert problems[7].time_limit_msec == 2000
   assert problems[7].tests[0].input == "2\n1 3\n3 1\n"
+
+
+def test_parse_list():
+  from ac_core.contest import parse_list
+  with open(os.path.join(test_dir, './TestFiles/contests.html')) as f:
+    html = f.read()
+  result = parse_list(html)
+  assert len(result.up_comming) == 7
+  assert len(result.recent) == 50
+
+  assert result.up_comming[0].name == 'AtCoder Regular Contest 165'
+  assert result.up_comming[0].start_timestamp == 1694952000
+  assert result.up_comming[0].duration == 120
+  assert result.up_comming[0].rated_range == ' - 2799'
+  assert result.up_comming[0].url == '/contests/arc165'

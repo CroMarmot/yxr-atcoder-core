@@ -24,9 +24,3 @@ coverage html
 ```bash
 mypy --ignore-missing-imports ac_core tests
 ```
-
-## Static gen
-
-```bash
-stubgen ac_core
-```
